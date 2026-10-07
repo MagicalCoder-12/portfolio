@@ -317,6 +317,7 @@
     .cat-game { background: rgba(34,211,238,0.1); color: var(--accent); }
     .cat-ml { background: rgba(52,211,153,0.1); color: var(--accent-3); }
     .cat-web { background: rgba(167,139,250,0.1); color: var(--accent-2); }
+    .cat-app { background: rgba(251,146,60,0.1); color: #fb923c; }
     .project-row p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; max-width: 600px; }
     .project-row .p-links { display: flex; gap: 0.5rem; flex-shrink: 0; }
     .p-link {
@@ -676,9 +677,11 @@
 
       <div class="project-filters">
         <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="featured">⭐ Featured</button>
         <button class="filter-btn" data-filter="game">Games</button>
         <button class="filter-btn" data-filter="ml">ML</button>
         <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="app">Apps</button>
       </div>
 
       <div class="projects-list">
@@ -804,7 +807,7 @@
           </div>
         </div>
 
-        <div class="project-row featured" data-cat="web">
+        <div class="project-row featured" data-cat="web app">
           <div class="p-info">
             <h3><img src="assets/MPH.ico" alt="MPH Songs icon" style="width:28px;height:28px;border-radius:6px;display:inline-block;vertical-align:middle;margin-right:0.5rem"><i class="fas fa-star" style="color:#fbbf24;margin-right:0.5rem"></i> MPH Songs <span class="cat cat-web">⭐ Featured</span></h3>
             <p>A modern music discovery and streaming web app deployed on Vercel — now also live on Google Play as a Song Lyrics Manager app. Features responsive UI, search functionality, and playlist management.</p>
@@ -812,7 +815,7 @@
           </div>
           <div class="p-links">
             <a href="https://play.google.com/store/apps/details?id=com.AJ.mphsongs" target="_blank" class="p-link"><i class="fab fa-google-play"></i> View App</a>
-            <a href="https://mph-songs.vercel.app/" target="_blank" class="p-link"><i class="fas fa-external-link-alt"></i> Live</a>
+            <a href="https://mph-songs.vercel.app/" target="_blank" class="p-link"><i class="fas fa-globe"></i> View Website</a>
             <a href="MPH_songs_policy.html" target="_blank" class="p-link"><i class="fas fa-shield-alt"></i> Privacy</a>
           </div>
         </div>
@@ -1207,7 +1210,9 @@
         btn.classList.add('active');
         const f = btn.dataset.filter;
         document.querySelectorAll('.project-row').forEach(row => {
-          row.style.display = (f === 'all' || row.dataset.cat === f) ? 'grid' : 'none';
+          const cats = (row.dataset.cat || '').split(' ');
+          const show = f === 'all' || (f === 'featured' ? row.classList.contains('featured') : cats.includes(f));
+          row.style.display = show ? 'grid' : 'none';
         });
       });
     });
