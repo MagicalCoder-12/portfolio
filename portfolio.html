@@ -1,1364 +1,1890 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ajith Kuppam - Game Developer, ML Engineer & Web Developer. Published game developer on Google Play with expertise in Godot, Python ML, and modern web technologies.">
-  <meta name="theme-color" content="#0a0a0a">
-  <meta property="og:title" content="Ajith Kuppam — Developer Portfolio">
-  <meta property="og:description" content="Game Developer · AI/ML Engineer · Data Analyst. Games on Google Play, ML models, AI web apps.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AJI Creators — indie game dev studio crafting immersive mobile games with Godot and Unity. Play Shadow Avengers, Dino Birthday, Slime Race, Swim Bomber and Beach Cleanup.">
+  <meta name="theme-color" content="#0a0a1a">
+  <meta property="og:title" content="AJI Creators | Game Development Studio">
+  <meta property="og:description" content="Crafting immersive game experiences — mobile games built with Godot & Unity.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/me.jpg">
+  <meta property="og:image" content="assets/dev_icon_resized.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ajith Kuppam — Developer Portfolio">
-  <meta name="twitter:description" content="Game Developer · AI/ML Engineer · Data Analyst.">
+  <meta name="twitter:title" content="AJI Creators | Game Development Studio">
+  <meta name="twitter:description" content="Crafting immersive game experiences — mobile games built with Godot & Unity.">
+  <meta name="twitter:image" content="assets/dev_icon_resized.png">
   <link rel="icon" type="image/png" href="assets/dev_icon_resized.png">
   <link rel="apple-touch-icon" href="assets/dev_icon_resized.png">
-  <title>Ajith Kuppam — Developer Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>AJI Creators | Game Development Studio</title>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --surface: #141414;
-      --surface-hover: #1a1a1a;
-      --border: rgba(255,255,255,0.06);
-      --border-hover: rgba(255,255,255,0.12);
-      --text: #fafafa;
-      --text-secondary: #a1a1aa;
-      --text-muted: #71717a;
-      --accent: #22d3ee;
-      --accent-2: #a78bfa;
-      --accent-3: #34d399;
-      --radius: 16px;
-      --radius-sm: 8px;
-    }
-    body.light-theme {
-      --bg: #f5f5f5;
-      --surface: #ffffff;
-      --surface-hover: #f0f0f0;
-      --border: rgba(0,0,0,0.08);
-      --border-hover: rgba(0,0,0,0.15);
-      --text: #1a1a1a;
-      --text-secondary: #52525b;
-      --text-muted: #a1a1aa;
-      --accent: #0891b2;
-      --accent-2: #7c3aed;
-      --accent-3: #059669;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-wrap: pretty; }
-    ::selection { background: var(--accent); color: var(--bg); }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    /* ── NAV ─────────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 0 2rem;
-      background: rgba(10,10,10,0.6);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-bottom: 1px solid var(--border);
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.35s ease;
-    }
-    nav.scrolled { background: rgba(10,10,10,0.92); }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-      height: 64px;
-    }
-    .nav-logo {
-      font-family: 'Space Mono', monospace; font-size: 1.1rem; font-weight: 700;
-      color: var(--accent); letter-spacing: -0.5px;
-    }
-    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
-    .nav-links a {
-      padding: 0.4rem 0.9rem; border-radius: 6px;
-      font-size: 0.85rem; font-weight: 500; color: var(--text-secondary);
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(255,255,255,0.05); }
-    .nav-cta {
-      padding: 0.45rem 1.1rem; border-radius: 8px;
-      background: var(--accent); color: var(--bg); font-weight: 600;
-      font-size: 0.82rem; transition: color, background-color, border-color, transform, box-shadow, opacity 0.2s; border: none; cursor: pointer;
-    }
-    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
-    .resume-dropdown {
-      display: none; position: absolute; top: 110%; right: 0;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; overflow: hidden; min-width: 200px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5); z-index: 100;
-    }
-    .resume-dropdown.open { display: block; }
-    .resume-dropdown a {
-      display: flex; align-items: center; gap: 0.6rem;
-      padding: 0.7rem 1rem; font-size: 0.82rem; font-weight: 500;
-      color: var(--text-secondary); transition: color, background-color, border-color, transform, box-shadow, opacity 0.15s; white-space: nowrap;
-    }
-    .resume-dropdown a:hover { background: rgba(255,255,255,0.05); color: var(--accent); }
-    .resume-dropdown a i { width: 16px; text-align: center; color: var(--text-muted); }
-    .resume-dropdown a:hover i { color: var(--accent); }
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; background: none; border: none; padding: 4px;
-    }
-    .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s; }
-
-    /* ── HERO ────────────────────────────────────── */
-    .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      padding: 7rem 2rem 4rem; position: relative; overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34,211,238,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(167,139,250,0.06) 0%, transparent 50%);
-    }
-    .hero-inner {
-      max-width: 1100px; margin: 0 auto; width: 100%;
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-    }
-    .hero-left {}
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.4rem 0.9rem; border-radius: 100px;
-      background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.15);
-      font-size: 0.78rem; color: var(--accent); font-weight: 500;
-      margin-bottom: 1.5rem; letter-spacing: 0.5px;
-    }
-    .hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700;
-      line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 0.75rem; text-wrap: balance;
-    }
-    .hero h1 .highlight {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .hero-role {
-      font-size: 1.1rem; font-weight: 600; color: var(--accent);
-      margin-bottom: 1rem; letter-spacing: 0.5px;
-    }
-    .hero-desc {
-      font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7;
-      max-width: 500px; margin-bottom: 2rem;
-    }
-    .hero-desc strong { color: var(--text); }
-    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.7rem 1.4rem; border-radius: 10px;
-      font-size: 0.88rem; font-weight: 600; font-family: inherit;
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.25s; cursor: pointer; border: none;
-    }
-    .btn-filled { background: var(--accent); color: var(--bg); }
-    .btn-filled:hover { opacity: 0.85; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(34,211,238,0.2); }
-    .btn-outline { background: transparent; border: 1px solid var(--border-hover); color: var(--text); }
-    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
-    .btn-filled:active, .btn-outline:active, .nav-cta:active { transform: scale(0.96); }
-    .filter-btn:active, .resume-dropdown a:active { transform: scale(0.96); }
-    .tech-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tech-pill {
-      padding: 0.35rem 0.85rem; border-radius: 100px;
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      font-size: 0.78rem; color: var(--text-secondary); font-weight: 500;
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.2s;
-    }
-    .tech-pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(34,211,238,0.05); }
-
-    .hero-right {
-      display: flex; justify-content: center; align-items: center;
-    }
-    .hero-visual {
-      width: 320px; height: 320px; position: relative;
-    }
-    .avatar-ring {
-      width: 100%; height: 100%; border-radius: 50%;
-      border: 2px solid rgba(34,211,238,0.15);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      animation: float 6s ease-in-out infinite;
-    }
-    .avatar-ring::before {
-      content: ''; position: absolute; inset: -8px;
-      border-radius: 50%; border: 1px dashed rgba(167,139,250,0.15);
-      animation: spin 20s linear infinite;
-    }
-    .avatar-inner {
-      width: 260px; height: 260px; border-radius: 50%;
-      background: linear-gradient(135deg, rgba(34,211,238,0.1), rgba(167,139,250,0.1));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 5rem; position: relative; overflow: hidden;
-    }
-    .avatar-inner img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; outline: 1px solid rgba(255,255,255,0.1); }
-    .float-badge {
-      position: absolute; padding: 0.5rem 0.8rem; border-radius: 10px;
-      background: var(--surface); border: 1px solid var(--border);
-      font-size: 0.72rem; font-weight: 600; white-space: nowrap;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    }
-    .float-badge.game { top: 10%; right: -10%; }
-    .float-badge.ml { bottom: 15%; left: -15%; }
-    .float-badge.web { bottom: -5%; right: 5%; }
-    .float-badge i { margin-right: 0.3rem; }
-    .float-badge.game i { color: var(--accent); }
-    .float-badge.ml i { color: var(--accent-3); }
-    .float-badge.web i { color: var(--accent-2); }
-
-    /* ── LOGO ANIMATION MODAL ─────────────────── */
-    .avatar-inner.clickable { cursor: pointer; }
-    .avatar-inner.clickable:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-    .pf-modal {
-      position: fixed; inset: 0; z-index: 2000;
-      display: flex; align-items: center; justify-content: center;
-      padding: 1.5rem;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .pf-modal.open { opacity: 1; visibility: visible; }
-    .pf-modal-content {
-      position: relative; width: min(720px, 92vw);
-      border-radius: 12px; overflow: hidden;
-      border: 1px solid var(--border-hover);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      background: #000;
-    }
-    .pf-modal-content video { display: block; width: 100%; height: auto; background: #000; }
-    .pf-modal-close {
-      position: absolute; top: 8px; right: 8px;
-      width: 36px; height: 36px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.3);
-      background: rgba(0,0,0,0.6); color: #fff;
-      font-size: 1.1rem; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-family: inherit;
-    }
-    .pf-modal-close:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── METRICS STRIP ───────────────────────────── */
-    .metrics {
-      position: relative; z-index: 1;
-      max-width: 1100px; margin: -2rem auto 0; padding: 0 2rem;
-    }
-    .metrics-bar {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      background: var(--border); border-radius: var(--radius); overflow: hidden;
-    }
-    .metric {
-      background: var(--surface); padding: 1.5rem; text-align: center;
-    }
-    .metric-value {
-      font-size: 1.8rem; font-weight: 700; font-family: 'Space Mono', monospace;
-      color: var(--accent); font-variant-numeric: tabular-nums;
-    }
-    .metric-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem; }
-
-    /* ── SECTIONS ────────────────────────────────── */
-    section { position: relative; z-index: 1; }
-    .section-wrap { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
-    .section-head { margin-bottom: 3rem; }
-    .section-head h2 {
-      font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px;
-      margin-bottom: 0.5rem; text-wrap: balance;
-    }
-    .section-head p { color: var(--text-muted); font-size: 0.95rem; max-width: 500px; }
-    .section-num {
-      font-family: 'Space Mono', monospace; font-size: 0.75rem;
-      color: var(--accent); margin-bottom: 0.5rem; letter-spacing: 2px;
-    }
-
-    /* ── PROJECTS ────────────────────────────────── */
-    .project-filters {
-      display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;
-    }
-    .filter-btn {
-      padding: 0.4rem 1rem; border-radius: 100px;
-      border: 1px solid var(--border); background: transparent;
-      color: var(--text-muted); font-size: 0.8rem; font-weight: 500;
-      cursor: pointer; transition: color, background-color, border-color, transform, box-shadow, opacity 0.2s; font-family: inherit;
-    }
-    .filter-btn:hover { border-color: var(--border-hover); color: var(--text-secondary); }
-    .filter-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
-
-    .projects-list { display: flex; flex-direction: column; gap: 1rem; }
-    .project-row {
-      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
-      padding: 1.5rem; border-radius: var(--radius);
-      background: var(--surface); border: 1px solid var(--border);
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
-    }
-    .project-row:hover {
-      border-color: var(--border-hover); background: var(--surface-hover);
-      transform: translateX(6px);
-    }
-    .project-row.featured {
-      border: 2px solid rgba(251,191,36,0.3); background: rgba(251,191,36,0.03);
-    }
-    .project-row.featured:hover {
-      border-color: rgba(251,191,36,0.5); box-shadow: 0 10px 40px rgba(251,191,36,0.15);
-    }
-    .project-row .p-info {}
-    .project-row h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
-    .project-row h3 .cat {
-      display: inline-block; font-size: 0.65rem; padding: 0.15rem 0.5rem;
-      border-radius: 4px; margin-left: 0.5rem; vertical-align: middle;
-      font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;
-    }
-    .cat-game { background: rgba(34,211,238,0.1); color: var(--accent); }
-    .cat-ml { background: rgba(52,211,153,0.1); color: var(--accent-3); }
-    .cat-web { background: rgba(167,139,250,0.1); color: var(--accent-2); }
-    .project-row p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; max-width: 600px; }
-    .project-row .p-links { display: flex; gap: 0.5rem; flex-shrink: 0; }
-    .p-link {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.4rem 0.9rem; border-radius: 8px;
-      border: 1px solid var(--border); font-size: 0.78rem; font-weight: 500;
-      color: var(--text-secondary); transition: color, background-color, border-color, transform, box-shadow, opacity 0.2s; white-space: nowrap;
-    }
-    .p-link:hover { border-color: var(--accent); color: var(--accent); }
-    .p-link i { font-size: 0.85rem; }
-    .project-row .p-tags { display: flex; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap; }
-    .p-tag {
-      font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 4px;
-      background: rgba(255,255,255,0.04); color: var(--text-muted); font-weight: 500;
-    }
-    .p-tag i { margin-right: 0.3rem; font-size: 0.65rem; }
-
-    /* ── SKILLS ──────────────────────────────────── */
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
-    }
-    .skill-card {
-      padding: 1.5rem; border-radius: var(--radius);
-      background: var(--surface); border: 1px solid var(--border);
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s;
-    }
-    .skill-card:hover { border-color: var(--border-hover); }
-    .skill-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; }
-    .skill-card h3 i { margin-right: 0.4rem; }
-    .skill-card h3 .s-icon { color: var(--accent); }
-    .skill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .skill-chip {
-      font-size: 0.78rem; padding: 0.35rem 0.75rem; border-radius: 6px;
-      background: rgba(255,255,255,0.04); color: var(--text-secondary); font-weight: 500;
-    }
-
-    /* ── EXPERIENCE ──────────────────────────────── */
-    .exp-list { display: flex; flex-direction: column; gap: 0; }
-    .exp-item {
-      display: grid; grid-template-columns: 140px 1fr; gap: 2rem;
-      padding: 1.5rem 0; border-bottom: 1px solid var(--border);
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.2s;
-    }
-    .exp-item:last-child { border-bottom: none; }
-    .exp-item:hover { padding-left: 0.5rem; }
-    .exp-date { font-family: 'Space Mono', monospace; font-size: 0.78rem; color: var(--text-muted); padding-top: 0.15rem; }
-    .exp-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.15rem; }
-    .exp-content .exp-role { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; }
-    .exp-content p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
-    .exp-content .exp-highlights { margin-top: 0.5rem; padding-left: 0; list-style: none; }
-    .exp-content .exp-highlights li {
-      font-size: 0.82rem; color: var(--text-muted); padding: 0.2rem 0;
-      padding-left: 1rem; position: relative;
-    }
-    .exp-content .exp-highlights li::before {
-      content: '▹'; position: absolute; left: 0; color: var(--accent);
-    }
-
-    /* ── CONTACT ─────────────────────────────────── */
-    .contact-section {
-      background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
-    }
-    .contact-text h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; }
-    .contact-text p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem; }
-    .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-    .c-link {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.75rem 1rem; border-radius: 10px;
-      border: 1px solid var(--border); transition: color, background-color, border-color, transform, box-shadow, opacity 0.2s;
-    }
-    .c-link:hover { border-color: var(--accent); background: rgba(34,211,238,0.03); }
-    .c-link .c-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.04); font-size: 0.9rem; flex-shrink: 0;
-    }
-    .c-link .c-info .c-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-    .c-link .c-info .c-value { font-size: 0.88rem; font-weight: 500; }
-
-    /* ── FOOTER ──────────────────────────────────── */
-    footer { position: relative; z-index: 1; padding: 2rem; text-align: center; }
-    .footer-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-      padding-top: 1.5rem; border-top: 1px solid var(--border);
-    }
-    .footer-copy { font-size: 0.78rem; color: var(--text-muted); font-family: 'Space Mono', monospace; }
-    .footer-links { display: flex; gap: 1rem; }
-    .footer-links a {
-      color: var(--text-muted); font-size: 1rem; transition: color, background-color, border-color, transform, box-shadow, opacity 0.2s;
-    }
-    .footer-links a:hover { color: var(--accent); }
-
-    /* ── SCROLL PROGRESS BAR ──────────────────────── */
-    .scroll-progress {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1001;
-      height: 3px; background: transparent;
-    }
-    .scroll-progress-bar {
-      height: 100%; width: 0%;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      transition: width 0.1s ease;
-    }
-
-    /* ── SKELETON SHIMMER ─────────────────────────── */
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    .skeleton {
-      background: linear-gradient(90deg, var(--surface) 25%, var(--surface-hover) 50%, var(--surface) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s infinite;
-      border-radius: var(--radius-sm);
-    }
-
-    /* ── THEME TOGGLE ─────────────────────────────── */
-    .theme-btn {
-      background: none; border: 1px solid var(--border); border-radius: 8px;
-      width: 36px; height: 36px; display: flex; align-items: center;
-      justify-content: center; color: var(--text-secondary); cursor: pointer;
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.2s; font-size: 0.9rem; flex-shrink: 0;
-    }
-    .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── BACK TO TOP ─────────────────────────────── */
-    .btt {
-      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 999;
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--accent); color: var(--bg); border: none;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; font-size: 1rem; opacity: 0; visibility: hidden;
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s; box-shadow: 0 4px 20px rgba(34,211,238,0.3);
-    }
-    .btt.show { opacity: 1; visibility: visible; }
-    .btt:hover { transform: translateX(-50%) translateY(-4px); }
-
-    /* ── ANIMATIONS ──────────────────────────────── */
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .reveal { opacity: 0; transform: translateY(30px); transition: color, background-color, border-color, transform, box-shadow, opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal.in { opacity: 1; transform: translateY(0); }
-
-    /* ── RESPONSIVE ──────────────────────────────── */
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 3rem; padding-top: 2rem; }
-      .hero-desc { margin: 0 auto 2rem; }
-      .hero-role { margin: 0 auto 1rem; }
-      .hero-actions { justify-content: center; }
-      .tech-pills { justify-content: center; }
-      .hero-right { order: -1; }
-      .hero-visual { width: 220px; height: 220px; }
-      .avatar-inner { width: 180px; height: 180px; }
-      .float-badge.game { top: 5%; right: -20%; font-size: 0.65rem; }
-      .float-badge.ml { bottom: 10%; left: -20%; font-size: 0.65rem; }
-      .float-badge.web { display: none; }
-      .metrics-bar { grid-template-columns: repeat(2, 1fr); }
-      .skills-grid { grid-template-columns: 1fr; }
-      .skills-grid .skill-card { margin-bottom: 0; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .project-row { grid-template-columns: 1fr; padding: 1.25rem; }
-      .project-row .p-links { margin-top: 0.75rem; flex-wrap: wrap; }
-      .project-row .p-links .p-link { flex: 1; min-width: 120px; text-align: center; justify-content: center; }
-      .projects-list { gap: 0.75rem; }
-    }
-    @media (max-width: 640px) {
-      nav { padding: 0 1rem; }
-      .nav-links { display: none; }
-      .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      .nav-links.open {
-        display: flex; flex-direction: column;
-        position: absolute; top: 64px; left: 0; right: 0;
-        background: rgba(10,10,10,0.95); backdrop-filter: blur(20px);
-        padding: 1rem; border-bottom: 1px solid var(--border);
-      }
-      .nav-links.open li { text-align: center; padding: 0.5rem 0; }
-      .nav-links.open a { display: block; width: 100%; }
-      .hero { padding: 5rem 1rem 2rem; min-height: auto; }
-      .hero h1 { font-size: 2rem; }
-      .hero-role { font-size: 0.95rem; }
-      .hero-desc { font-size: 0.95rem; }
-      .hero-visual { width: 160px; height: 160px; }
-      .avatar-inner { width: 120px; height: 120px; font-size: 3rem !important; }
-      .hero-actions { gap: 0.5rem; }
-      .hero-actions .btn { padding: 0.6rem 1rem; font-size: 0.8rem; }
-      .section-wrap { padding: 3rem 1rem; }
-      .section-head { margin-bottom: 2rem; }
-      .section-head h2 { font-size: 1.5rem; }
-      .metrics-bar { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-      .metric { padding: 1rem 0.5rem; }
-      .metric-value { font-size: 1.5rem; }
-      .metric-label { font-size: 0.7rem; }
-      .project-row { padding: 1rem; }
-      .project-row h3 { font-size: 1rem; }
-      .project-row p { font-size: 0.85rem; }
-      .project-row .p-tags { margin-top: 0.5rem; }
-      .project-row .p-links .p-link { min-width: 100%; }
-      .project-filters { gap: 0.4rem; }
-      .filter-btn { padding: 0.35rem 0.75rem; font-size: 0.75rem; }
-      .skills-grid .skill-card h3 { font-size: 0.9rem; }
-      .skills-grid .skill-card { padding: 1rem; }
-      .skill-chip { font-size: 0.7rem; padding: 0.25rem 0.5rem; }
-      .exp-item { padding: 1rem 0; }
-      .exp-date { font-size: 0.7rem; }
-      .exp-content h3 { font-size: 0.95rem; }
-      .exp-content .exp-role { font-size: 0.8rem; }
-      .exp-content .exp-highlights li { font-size: 0.75rem; }
-      .contact-grid .c-link { padding: 0.75rem; }
-      .contact-grid .c-link .c-icon { width: 32px; height: 32px; }
-      .footer-inner { flex-direction: column; gap: 1rem; padding: 1.5rem 0; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Scroll progress bar -->
-  <div class="scroll-progress"><div class="scroll-progress-bar" id="scrollBar"></div></div>
-
-<!-- ═══ NAVIGATION ═══ -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">ak.</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about" class="active">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
-      <div class="nav-resume-wrap" style="position:relative;">
-        <button class="nav-cta" id="resumeBtn"><i class="fas fa-download" style="font-size:0.75rem"></i> Resume <i class="fas fa-caret-down" style="font-size:0.65rem;margin-left:0.2rem"></i></button>
-        <div class="resume-dropdown" id="resumeDropdown">
-          <a href="resume.html" target="_blank"><i class="fas fa-globe"></i> Web Resume (Print)</a>
-          <a href="Resume/Master_resume.pdf" download="Master_resume.pdf"><i class="fas fa-star"></i> Master Resume (PDF)</a>
-          <a href="Resume/Game_Resume.pdf" download="Game_Resume.pdf"><i class="fas fa-gamepad"></i> Game Dev Resume (PDF)</a>
-          <a href="Resume/AI_Resume.pdf" download="AI_Resume.pdf"><i class="fas fa-graduation-cap"></i> AI Resume (PDF)</a>
-        </div>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ═══ HERO ═══ -->
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-tag"><span class="dot"></span> Open to opportunities</div>
-        <h1>Hi, I'm <span class="highlight">Ajith Kuppam</span></h1>
-        <p class="hero-role">Game Developer · AI/ML Engineer · Data Analyst</p>
-        <p class="hero-desc">
-          I build <strong>immersive mobile games</strong> published on Google Play, <strong>ML models</strong> with 99% accuracy, and <strong>AI-powered web apps</strong> deployed at hackathons. Currently crafting 3D experiences in Godot.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-filled"><i class="fas fa-rocket"></i> View Projects</a>
-          <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
-          <div class="hero-resume-wrap" style="position:relative;display:inline-flex;">
-            <button class="btn btn-outline" id="heroResumeBtn"><i class="fas fa-file-alt"></i> Resume <i class="fas fa-caret-down" style="font-size:0.65rem;margin-left:0.2rem"></i></button>
-            <div class="resume-dropdown" id="heroResumeDropdown">
-              <a href="resume.html" target="_blank"><i class="fas fa-globe"></i> Web Resume (Print)</a>
-              <a href="Resume/Master_resume.pdf" download="Master_resume.pdf"><i class="fas fa-star"></i> Master Resume (PDF)</a>
-              <a href="Resume/Game_Resume.pdf" download="Game_Resume.pdf"><i class="fas fa-gamepad"></i> Game Dev Resume (PDF)</a>
-              <a href="Resume/AI_Resume.pdf" download="AI_Resume.pdf"><i class="fas fa-graduation-cap"></i> AI Resume (PDF)</a>
-            </div>
-          </div>
-        </div>
-        <div class="tech-pills">
-          <span class="tech-pill">Godot</span>
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">TensorFlow</span>
-          <span class="tech-pill">NLP</span>
-          <span class="tech-pill">PyTorch</span>
-          <span class="tech-pill">3D Games</span>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-visual">
-          <div class="avatar-ring">
-            <div class="avatar-inner clickable" id="pfAvatar" role="button" tabindex="0" title="Play logo animation" aria-haspopup="dialog">
-              <img src="assets/me.jpg" alt="Ajith Kuppam - press to play logo animation" onerror="this.parentElement.innerHTML='<i class=\'fas fa-user\' style=\'font-size:4rem;color:var(--accent)\'></i>'">
-            </div>
-          </div>
-          <div class="float-badge game"><i class="fas fa-gamepad"></i> Game Dev</div>
-          <div class="float-badge ml"><i class="fas fa-brain"></i> AI / ML</div>
-          <div class="float-badge web"><i class="fas fa-chart-bar"></i> Data Analyst</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ LOGO ANIMATION MODAL ═══ -->
-  <div class="pf-modal" id="pfLogoModal" role="dialog" aria-modal="true" aria-label="Logo animation video" aria-hidden="true">
-    <div class="pf-modal-content">
-      <button class="pf-modal-close" id="pfLogoClose" aria-label="Close logo animation">&times;</button>
-      <video id="pfLogoVideo" src="assets/logo_animation.mp4" poster="assets/dev_icon_resized.png" controls playsinline preload="none"></video>
-    </div>
-  </div>
-
-  <!-- ═══ METRICS ═══ -->
-  <div class="metrics">
-    <div class="metrics-bar">
-        <div class="metric">
-          <div class="metric-value" data-target="9">0</div>
-          <div class="metric-label">Projects Built</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value" data-target="3">0</div>
-          <div class="metric-label">Games Published</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value" data-target="4">0</div>
-          <div class="metric-label">ML Models</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value" data-target="2">0</div>
-          <div class="metric-label">Web Apps</div>
-        </div>
-    </div>
-  </div>
-
-  <!-- ═══ ABOUT ═══ -->
-  <section id="about">
-    <div class="section-wrap reveal">
-      <div class="section-head">
-        <div class="section-num">01 //</div>
-        <h2>About Me</h2>
-        <p>A quick snapshot of who I am and what drives me.</p>
-      </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.8;">
-        <div>
-          <p>I'm a B.Tech student in <strong style="color:var(--accent)">AI & Data Science</strong> at St. Martin's Engineering College with a CGPA of 8.15. I've worked as a Game Developer at Broadbased Games, Vibe Coder at Hopscotch Games, and ML Intern at Niltech Edu. I love building things at the intersection of AI and interactive experiences.</p>
-        </div>
-        <div>
-          <p>My toolkit includes <strong style="color:var(--accent)">TensorFlow, PyTorch & Scikit-learn</strong> for ML, <strong style="color:var(--accent-3)">Godot & Unity</strong> for games, and <strong style="color:var(--accent-2)">React & Node.js</strong> for the web. Currently building with prompt engineering and exploring 3D game creation in Godot.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ PROJECTS ═══ -->
-  <section id="projects">
-    <div class="section-wrap reveal">
-      <div class="section-head">
-        <div class="section-num">02 //</div>
-        <h2>Featured Projects</h2>
-        <p>A selection of games, ML models, and web apps I've built.</p>
-      </div>
-
-      <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="game">Games</button>
-        <button class="filter-btn" data-filter="ml">ML</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-      </div>
-
-      <div class="projects-list">
-        <div class="project-row featured" data-cat="game">
-          <div class="p-info">
-            <h3><i class="fas fa-star" style="color:#fbbf24;margin-right:0.5rem"></i> Shadow Avengers <span class="cat cat-game">⭐ Featured</span></h3>
-            <p>A Chicken Invaders-style mobile shooter. 5★ rating, 100+ downloads on Google Play. Built in Godot, rebuilt after switching from Unity.</p>
-            <div class="p-tags"><span class="p-tag">Godot</span><span class="p-tag">GDScript</span><span class="p-tag">Android</span><span class="p-tag">2D</span><span class="p-tag">5★ Rating</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://play.google.com/store/apps/details?id=com.Aj.ShadowAvenger" target="_blank" class="p-link"><i class="fab fa-google-play"></i> View App</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="game">
-          <div class="p-info">
-            <h3>Dino Birthday <span class="cat cat-game">Game</span></h3>
-            <p>A charming endless runner where players collect birthday letters as a cute dinosaur. Designed for young audiences with colorful visuals and engaging mechanics.</p>
-            <div class="p-tags"><span class="p-tag">Godot</span><span class="p-tag">GDScript</span><span class="p-tag">Android</span><span class="p-tag">Endless Runner</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://play.google.com/store/apps/dev?id=6253925717132103947" target="_blank" class="p-link"><i class="fab fa-google-play"></i> Play Store</a>
-            <a href="dino_info.html" target="_blank" class="p-link"><i class="fas fa-info-circle"></i> Details</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="game">
-          <div class="p-info">
-            <h3>Slime Race <span class="cat cat-game">Game</span></h3>
-            <p>Race through challenging tracks as a speedy slime in this exciting mobile racing game! Built with Godot.</p>
-            <div class="p-tags"><span class="p-tag">Godot</span><span class="p-tag">GDScript</span><span class="p-tag">Mobile</span><span class="p-tag">Racing</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://aji-creators.itch.io/" target="_blank" class="p-link"><i class="fas fa-external-link-alt"></i> Play</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="game">
-          <div class="p-info">
-            <h3>Swim Bomber <span class="cat cat-game">Game</span></h3>
-            <p>A time attack bomber man game where you have to collect 7 keys in 5 minutes. Race against the clock in this fast-paced challenge!</p>
-            <div class="p-tags"><span class="p-tag">Godot</span><span class="p-tag">GDScript</span><span class="p-tag">Web</span><span class="p-tag">Action</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://aji-creators.itch.io/swim-bomber" target="_blank" class="p-link"><i class="fas fa-external-link-alt"></i> Play</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="game">
-          <div class="p-info">
-            <h3>Beach Cleanup <span class="cat cat-game">Game</span></h3>
-            <p>A deceptively cozy beach puzzle game where the biggest challenge isn't the sand or the sea — it's trusting your own eyes. Built in 3 days.</p>
-            <div class="p-tags"><span class="p-tag">Godot</span><span class="p-tag">GDScript</span><span class="p-tag">Web</span><span class="p-tag">Puzzle</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://aji-creators.itch.io/beach-cleanup" target="_blank" class="p-link"><i class="fas fa-external-link-alt"></i> Play</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="game">
-          <div class="p-info">
-            <h3>VR Puzzle Game <span class="cat cat-game">Game</span></h3>
-            <p>A VR puzzle prototype built with Unity & ProBuilder for team-level core mechanic testing — designed to validate interactions and gameplay loops before full production.</p>
-            <div class="p-tags"><span class="p-tag">Unity</span><span class="p-tag">ProBuilder</span><span class="p-tag">VR</span><span class="p-tag">Level Design</span><span class="p-tag">Prototype</span></div>
-          </div>
-          <div class="p-links">
-            <a href="#" class="p-link"><i class="fas fa-info-circle"></i> Internal Tool</a>
-          </div>
-        </div>
-
-        <div class="project-row featured" data-cat="ml">
-          <div class="p-info">
-            <h3><i class="fas fa-star" style="color:#fbbf24;margin-right:0.5rem"></i> Auto Deploy Agent <span class="cat cat-ml">⭐ Featured</span></h3>
-            <p>A command-line tool that automatically detects, builds, and deploys web projects to the most suitable hosting platform using AI-powered recommendations.</p>
-            <div class="p-tags"><span class="p-tag">Python</span><span class="p-tag">CLI</span><span class="p-tag">AI</span><span class="p-tag">DevOps</span><span class="p-tag">Automation</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://github.com/MagicalCoder-12/Auto-Deploy" target="_blank" class="p-link"><i class="fab fa-github"></i> View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="ml">
-          <div class="p-info">
-            <h3>Facebook Sentiment Analysis <span class="cat cat-ml">ML</span></h3>
-            <p>High-accuracy (97%) sentiment classifier using MiniLM-L6-H384, trained on 130,000+ labeled Facebook comments with emoji-augmented data. Optimized on NVIDIA RTX 4060 GPU achieving ~5-10ms latency. Integrated Twitter-Roberta to boost emoji understanding, improving accuracy to ~98%.</p>
-            <div class="p-tags"><span class="p-tag">Python</span><span class="p-tag">PyTorch</span><span class="p-tag">MiniLM</span><span class="p-tag">NLP</span><span class="p-tag">Streamlit</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://github.com/MagicalCoder-12/Facebook-Sentiment-Analysis-using-NLP" target="_blank" class="p-link"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="ml">
-          <div class="p-info">
-            <h3>Credit Card Fraud Detection <span class="cat cat-ml">ML</span></h3>
-            <p>Built a Random Forest classifier to detect fraudulent transactions on imbalanced datasets. Applied SMOTE resampling and cross-validation for robustness, achieving ~99% test accuracy.</p>
-            <div class="p-tags"><span class="p-tag">Python</span><span class="p-tag">Random Forest</span><span class="p-tag">SMOTE</span><span class="p-tag">Scikit-learn</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://github.com/MagicalCoder-12/creditcard" target="_blank" class="p-link"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="ml">
-          <div class="p-info">
-            <h3>Insurance Policy Analysis System <span class="cat cat-ml">ML</span></h3>
-            <p>AI-powered RAG system built for HackRx 6.0 (Bajaj Finserv Hackathon). Uses FAISS semantic search with Groq API for real-time LLM responses. Includes REST APIs, document upload pipeline, and real-time usage tracking.</p>
-            <div class="p-tags"><span class="p-tag">Python</span><span class="p-tag">FAISS</span><span class="p-tag">Groq API</span><span class="p-tag">RAG</span><span class="p-tag">REST API</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://github.com/MagicalCoder-12/Insurance-Policy-Analysis-System" target="_blank" class="p-link"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="ml">
-          <div class="p-info">
-            <h3>Predictive Maintenance <span class="cat cat-ml">ML</span></h3>
-            <p>Random Forest classifier predicting equipment failures with 99.85% test accuracy on a 10,000-record dataset. Applied SMOTE for class imbalance, reduced featureset by 25% via importance analysis. Validated with 5-fold cross-validation (99.91% mean accuracy).</p>
-            <div class="p-tags"><span class="p-tag">Python</span><span class="p-tag">Random Forest</span><span class="p-tag">Pandas</span><span class="p-tag">Scikit-learn</span><span class="p-tag">Matplotlib</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://github.com/MagicalCoder-12/Predictive-Maintenance-for-Industrial-Equipment" target="_blank" class="p-link"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="web">
-          <div class="p-info">
-            <h3>MPH Songs <span class="cat cat-web">Web</span></h3>
-            <p>A modern music discovery and streaming web app deployed on Vercel. Features responsive UI, search functionality, and playlist management.</p>
-            <div class="p-tags"><span class="p-tag">React</span><span class="p-tag">JavaScript</span><span class="p-tag">Vercel</span></div>
-          </div>
-          <div class="p-links">
-            <a href="https://mph-songs.vercel.app/" target="_blank" class="p-link"><i class="fas fa-external-link-alt"></i> Live</a>
-            <a href="MPH_songs_policy.html" target="_blank" class="p-link"><i class="fas fa-shield-alt"></i> Privacy</a>
-          </div>
-        </div>
-
-        <div class="project-row" data-cat="web">
-          <div class="p-info">
-            <h3>My Game Dev Website <span class="cat cat-web">Web</span></h3>
-            <p>A responsive, animated showcase of my games, ML projects, and skills — the game portfolio. Built with semantic HTML, custom CSS, and vanilla JavaScript.</p>
-            <div class="p-tags"><span class="p-tag">HTML</span><span class="p-tag">CSS</span><span class="p-tag">JavaScript</span></div>
-          </div>
-          <div class="p-links">
-            <a href="index.html" class="p-link"><i class="fas fa-external-link-alt"></i> View</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SKILLS ═══ -->
-  <section id="skills">
-    <div class="section-wrap reveal">
-      <div class="section-head">
-        <div class="section-num">03 //</div>
-        <h2>Skills & Tools</h2>
-        <p>Technologies I use to bring ideas to life.</p>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3><span class="s-icon">🎮</span> Game Development</h3>
-          <div class="skill-list">
-            <span class="skill-chip">Godot Engine</span>
-            <span class="skill-chip">GDScript</span>
-            <span class="skill-chip">Unity</span>
-            <span class="skill-chip">Pygame</span>
-            <span class="skill-chip">2D Design</span>
-            <span class="skill-chip">Level Designing</span>
-            <span class="skill-chip">3D Game Creation</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3><span class="s-icon">🤖</span> Machine Learning</h3>
-          <div class="skill-list">
-            <span class="skill-chip">Python</span>
-            <span class="skill-chip">TensorFlow</span>
-            <span class="skill-chip">Keras</span>
-            <span class="skill-chip">PyTorch</span>
-            <span class="skill-chip">Scikit-learn</span>
-            <span class="skill-chip">NLP</span>
-            <span class="skill-chip">Prompt Engineering</span>
-            <span class="skill-chip">Sentence Transformers</span>
-            <span class="skill-chip">Pandas</span>
-            <span class="skill-chip">NumPy</span>
-            <span class="skill-chip">Matplotlib</span>
-            <span class="skill-chip">Seaborn</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3><span class="s-icon">💻</span> Web & Tools</h3>
-          <div class="skill-list">
-            <span class="skill-chip">Java</span>
-            <span class="skill-chip">HTML</span>
-            <span class="skill-chip">Tailwind CSS</span>
-            <span class="skill-chip">React</span>
-            <span class="skill-chip">Node.js</span>
-            <span class="skill-chip">REST APIs</span>
-            <span class="skill-chip">Git</span>
-            <span class="skill-chip">GitHub</span>
-            <span class="skill-chip">Docker</span>
-            <span class="skill-chip">Vercel</span>
-            <span class="skill-chip">FAISS</span>
-            <span class="skill-chip">Groq API</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CERTIFICATES ═══ -->
-  <style>
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    .cert-card {
-      padding: 0.75rem;
-      border-radius: var(--radius);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s;
+      --neon-blue: #00ffff;
+      --neon-purple: #9d00ff;
+      --dark-bg: #0a0a1a;
+      --darker-bg: #050510;
+      --text-color: #e0e0e0;
+      --header-height: 80px;
+    }
+    
+    /* Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    img { max-width: 100%; height: auto; }
+    
+    body {
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-wrap: pretty;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(157, 0, 255, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.1) 0%, transparent 20%);
+    }
+    
+    /* Cyberpunk Glow Effects */
+    .glow {
+      text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+    }
+    
+    .purple-glow {
+      text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+    }
+    
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: var(--darker-bg);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--neon-purple);
+      border-radius: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--neon-blue);
+    }
+        
+    /* Header Styles */
+    header {
+      background: linear-gradient(to right, var(--darker-bg), var(--dark-bg));
+      padding: 2rem 0;
       text-align: center;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
     }
-    .cert-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-    }
-    .cert-card {
-      cursor: pointer;
-    }
-    .cert-card img {
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: var(--radius-sm);
-      background: #1a1a1a;
-      margin-bottom: 0.75rem;
-      border: 1px solid var(--border);
+      height: 100%;
+      background: 
+        linear-gradient(45deg, transparent 48%, var(--neon-blue) 49%, var(--neon-blue) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, var(--neon-blue) 49%, var(--neon-blue) 51%, transparent 52%);
+      background-size: 20px 20px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    
+    .logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid var(--neon-blue);
       outline: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 20px var(--neon-blue);
+      margin: 0 auto;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      position: relative;
+      z-index: 1;
     }
-    .cert-card .cert-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-secondary);
+    
+    .logo:hover {
+      transform: rotate(10deg) scale(1.05);
+      box-shadow: 0 0 40px var(--neon-blue);
     }
 
+    .logo-clickable { cursor: pointer; }
+    .logo-clickable:focus-visible {
+      outline: 3px solid var(--neon-blue);
+      outline-offset: 4px;
+    }
 
-    /* Lightbox */
-    .lightbox {
-      display: none;
+    /* Logo animation modal */
+    .logo-modal {
       position: fixed;
       inset: 0;
-      z-index: 9999;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(8px);
-      justify-content: center;
+      z-index: 2000;
+      display: flex;
       align-items: center;
-      padding: 2rem;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(5, 5, 16, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-    .lightbox.open { display: flex; }
-    .lightbox img {
-      max-width: 95vw;
-      max-height: 90vh;
-      object-fit: contain;
-      border-radius: var(--radius);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    .logo-modal.open { opacity: 1; visibility: visible; }
+    .logo-modal-content {
+      position: relative;
+      width: min(720px, 92vw);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.25);
+      background: #000;
     }
-    .lightbox .lb-close {
+    .logo-modal-content video { display: block; width: 100%; height: auto; background: #000; }
+    .logo-modal-close {
       position: absolute;
-      top: 1.5rem;
-      right: 2rem;
+      top: 8px;
+      right: 8px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.6);
       color: #fff;
-      font-size: 2rem;
+      font-size: 1.1rem;
       cursor: pointer;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-      background: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-modal-close:hover { border-color: var(--neon-blue); color: var(--neon-blue); }
+    
+    h1 {
+      font-size: 3rem;
+      margin: 1rem 0;
+      color: var(--neon-blue);
+      font-family: 'Orbitron', 'Segoe UI', sans-serif;
+      letter-spacing: 2px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--neon-blue);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s ease;
+    }
+    
+    h1:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      color: var(--neon-purple);
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: rgba(10, 10, 30, 0.9);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
+    }
+    
+    nav.scrolled {
+      padding: 0.5rem 1rem;
+      box-shadow: 0 0 30px rgba(0, 10, 10, 0.5);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .nav-link {
+      color: var(--text-color);
+      text-decoration: none;
+      padding: 0.5rem 1.5rem;
+      margin: 0 0.5rem;
+      border-radius: 5px;
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Orbitron', 'Segoe UI', sans-serif;
+      letter-spacing: 1px;
+    }
+    
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--neon-blue);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--neon-blue);
+    }
+    
+    .nav-link:hover::before {
+      width: 100%;
+    }
+    
+    .nav-link.active {
+      color: var(--neon-blue);
+    }
+    
+    .nav-link.active::before {
+      width: 100%;
+    }
+    
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .container.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background-color: rgba(15, 15, 35, 0.7);
+      border-radius: 10px;
+      border-left: 3px solid var(--neon-purple);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(45deg, transparent 48%, rgba(0, 255, 255, 0.1) 49%, rgba(0, 255, 255, 0.1) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(0, 255, 255, 0.1) 49%, rgba(0, 255, 255, 0.1) 51%, transparent 52%);
+      background-size: 10px 10px;
+      pointer-events: none;
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+    }
+    
+    h2 {
+      color: var(--neon-blue);
+      font-size: 2rem;
+      margin-top: 0;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+      padding-bottom: 0.5rem;
+      font-family: 'Orbitron', 'Segoe UI', sans-serif;
+      letter-spacing: 1px;
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--neon-purple);
+    }
+    
+    h3 {
+      color: var(--neon-purple);
+      font-size: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    /* Terminal Styling */
+    .terminal {
+      font-family: 'Courier New', monospace;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--neon-blue);
+      border-radius: 5px;
+      padding: 15px;
+      margin: 10px 0;
+      position: relative;
+    }
+    
+    .terminal::before {
+      content: ">";
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      color: var(--neon-blue);
+    }
+    
+    .terminal-text {
+      margin-left: 20px;
+    }
+    
+    .terminal-text p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    
+    /* Game Cards */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .game-card:active { transform: scale(0.96); }
+    .game-card {
+      background: linear-gradient(145deg, #0f0f2a, #1a1a3a);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.5s ease;
+      border: 1px solid rgba(0, 255, 255, 0.1);
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .game-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .game-card:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+    
+    .game-card:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+    
+    .game-card:hover {
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 0 15px 30px rgba(0, 255, 255, 0.2);
+      border-color: var(--neon-blue);
+    }
+    
+    .game-card.featured {
+      border-color: #ff9800;
+      box-shadow: 0 5px 20px rgba(255, 152, 0, 0.2);
+    }
+    .game-card.featured:hover {
+      box-shadow: 0 15px 40px rgba(255, 152, 0, 0.3);
+      border-color: #ff9800;
+    }
+    .featured-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      z-index: 10;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 10px rgba(255, 152, 0, 0.4);
+    }
+    .dev-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, #9d00ff, #6200ea);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      z-index: 10;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .game-image {
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: contain;
+      background-color: #1a1a3a;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      transition: transform 0.5s ease;
+    }
+    
+    .game-card:hover .game-image {
+      transform: scale(1.05);
+    }
+
+    /* Game search + status filter */
+    .game-browse-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: stretch;
+      margin-top: 1rem;
+    }
+    .game-browse-bar .game-search-wrap { margin-top: 0; flex: 1 1 240px; }
+    .game-status-filter {
+      background: rgba(0, 255, 255, 0.04);
+      border: 1px solid rgba(0, 255, 255, 0.25);
+      border-radius: 8px;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      font-family: inherit;
+      padding: 0.55rem 0.9rem;
+      cursor: pointer;
+      outline: none;
+    }
+    .game-status-filter:focus-visible { border-color: var(--neon-blue); box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+    .game-status-filter option { background: #0f0f2a; color: var(--text-color); }
+    .game-search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      max-width: 420px;
+      margin-top: 1rem;
+      padding: 0.55rem 0.9rem;
+      border: 1px solid rgba(0, 255, 255, 0.25);
+      border-radius: 8px;
+      background: rgba(0, 255, 255, 0.04);
+      color: var(--neon-blue);
+    }
+    .game-search-wrap input {
+      flex: 1;
+      background: transparent;
       border: none;
+      outline: none;
+      color: var(--text-color);
+      font-size: 0.9rem;
       font-family: inherit;
     }
-    .lightbox .lb-close:hover { opacity: 1; }
+    .game-search-wrap input::placeholder { color: rgba(224, 224, 224, 0.45); }
+    .no-games-msg {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2rem 1rem;
+      color: rgba(224, 224, 224, 0.6);
+      border: 1px dashed rgba(0, 255, 255, 0.3);
+      border-radius: 10px;
+    }
+
+    /* 3D tilt */
+    .game-card.tilting { transition: transform 0.1s ease, box-shadow 0.3s ease; will-change: transform; }
+
+    /* Sound toggle */
+    .sound-toggle {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      z-index: 1500;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      background: rgba(10, 10, 26, 0.85);
+      color: var(--neon-blue);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sound-toggle:hover { box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); }
+    .sound-toggle[aria-pressed="false"] { opacity: 0.55; }
+
+    /* Contact form status */
+    #formStatus { min-height: 1.4em; font-size: 0.9rem; margin: 0; }
+    #formStatus.success { color: #00ffcc; }
+    #formStatus.error { color: #ff6b6b; }
+    #sendBtn:disabled { opacity: 0.6; cursor: wait; }
+
+    /* Terminal typing caret */
+    .typing-caret {
+      display: inline-block;
+      width: 0.55em;
+      height: 1em;
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      background: var(--neon-blue);
+      animation: caretBlink 0.8s step-end infinite;
+    }
+    @keyframes caretBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    
+    .game-info {
+      padding: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .game-stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .game-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      color: #ccc;
+      background: rgba(0, 255, 255, 0.08);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+    }
+    .game-stat i { color: var(--neon-blue); font-size: 0.75rem; }
+    .game-stat .star { color: #ff9800; }
+    .game-stat.downloads { color: #4caf50; }
+    .game-stat.downloads i { color: #4caf50; }
+    .game-stat.build-time { color: #a78bfa; }
+    .game-stat.build-time i { color: #a78bfa; }
+    .game-stat.platform { color: #93c5fd; }
+    .game-stat.platform i { color: #93c5fd; }
+    .game-meta {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .game-meta-tag {
+      font-size: 0.65rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      background: rgba(157, 0, 255, 0.15);
+      color: #c084fc;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .game-title {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem 0;
+      color: var(--neon-blue);
+      font-family: 'Orbitron', 'Segoe UI', sans-serif;
+      letter-spacing: 1px;
+    }
+    
+    .game-description {
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+    
+    .game-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--neon-purple);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .game-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.5s ease;
+    }
+    
+    .game-link:hover {
+      background-color: var(--neon-blue);
+      box-shadow: 0 0 10px var(--neon-blue);
+    }
+    
+    .game-link:hover::before {
+      left: 100%;
+    }
+    
+    /* About Section */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 3px solid var(--neon-purple);
+      box-shadow: 0 0 20px var(--neon-purple);
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.5s ease;
+      filter: grayscale(30%);
+    }
+    
+    .profile-pic:hover {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+      box-shadow: 0 0 30px var(--neon-purple);
+    }
+    
+    .skills-container {
+      margin-top: 2rem;
+    }
+    
+    .skill-bar {
+      margin-bottom: 1rem;
+    }
+    
+    .skill-name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      color: var(--neon-blue);
+    }
+    
+    .skill-progress {
+      height: 10px;
+      background: rgba(0, 255, 255, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .skill-level {
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+      border-radius: 5px;
+      width: 0;
+      transition: width 1.5s ease;
+    }
+    
+    /* Contact Section */
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .contact-card {
+      background: rgba(20, 20, 50, 0.7);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid var(--neon-blue);
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      box-sizing: border-box;
+      max-width: 100%;
+      overflow: hidden;
+      word-break: break-word;
+    }
+    
+    .contact-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .contact-card:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+    
+    .contact-card:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+    
+    .contact-card:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+    
+    .contact-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px var(--neon-blue);
+    }
+    
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--neon-purple);
+      margin-bottom: 1rem;
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
+    }
+    
+    .contact-card:hover .contact-icon {
+      color: var(--neon-blue);
+      transform: scale(1.2);
+    }
+    
+    /* Email Link Styling */
+    .contact-card a[href^="mailto"] {
+      color: var(--neon-blue);
+      text-decoration: none;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    
+    .contact-card a[href^="mailto"]:hover {
+      color: var(--neon-purple);
+      text-decoration: underline;
+      text-shadow: 0 0 10px var(--neon-purple);
+    }
+    
+    /* Contact Form */
+    #contactForm {
+      margin-top: 2rem;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+    #contactForm label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--neon-blue);
+      font-size: 0.9rem;
+    }
+    #contactForm input,
+    #contactForm textarea {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid var(--neon-blue);
+      border-radius: 5px;
+      color: white;
+      font-size: 1rem;
+      box-sizing: border-box;
+      font-family: inherit;
+      max-width: 100%;
+    }
+    #contactForm textarea {
+      resize: vertical;
+    }
+    #contactForm button {
+      padding: 0.8rem 1.5rem;
+      background: var(--neon-purple);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
+      font-size: 1rem;
+      font-weight: 600;
+      width: 100%;
+    }
+    #contactForm button:hover {
+      background: var(--neon-blue);
+      box-shadow: 0 0 15px var(--neon-blue);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--darker-bg);
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(0, 255, 255, 0.2);
+      position: relative;
+    }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(45deg, transparent 48%, rgba(0, 255, 255, 0.05) 49%, rgba(0, 255, 255, 0.05) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(0, 255, 255, 0.05) 49%, rgba(0, 255, 255, 0.05) 51%, transparent 52%);
+      background-size: 20px 20px;
+      pointer-events: none;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .social-link {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(0, 255, 255, 0.1);
+    }
+    
+    .social-link:hover {
+      color: var(--neon-blue);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px var(--neon-blue);
+      background: rgba(0, 255, 255, 0.2);
+    }
+    
+    .copyright {
+      color: #888;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-legal {
+      margin: 0.75rem 0 0.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-legal a {
+      color: var(--neon-blue);
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    
+    .footer-legal a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px var(--neon-blue);
+      text-decoration: none;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--neon-purple);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: color, background-color, border-color, transform, box-shadow, opacity 0.3s ease;
+      z-index: 99;
+      box-shadow: 0 0 10px var(--neon-purple);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--neon-blue);
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px var(--neon-blue);
+    }
+    
+    /* Particle Background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    /* Animations */
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        text-shadow: none;
+        opacity: 0.8;
+      }
+    }
+    
+    .ficker {
+      animation: flicker 3s infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      /* Header */
+      header { padding: 1.5rem 0.5rem; }
+      .logo { width: 100px; height: 100px; }
+      h1 { font-size: 1.8rem; }
+      .tagline { font-size: 0.75rem; letter-spacing: 1px; padding: 0 0.5rem; }
+      
+      /* Navigation */
+      .nav-container { flex-wrap: wrap; justify-content: center; gap: 0.25rem; }
+      .nav-link { padding: 0.4rem 0.8rem; font-size: 0.75rem; margin: 0.15rem; }
+      
+      /* Container */
+      .container { padding: 0 1rem; margin: 1rem auto; }
+      
+      /* Sections */
+      section { padding: 1.25rem; margin-bottom: 1.5rem; }
+      section h2 { font-size: 1.4rem; }
+      section h3 { font-size: 1.1rem; }
+      section p { font-size: 0.9rem; line-height: 1.6; }
+      
+      /* Game Cards */
+      .games-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .game-info { padding: 1rem; }
+      .game-title { font-size: 1.2rem; }
+      .game-description { font-size: 0.85rem; }
+      .game-stats { gap: 0.5rem; }
+      .game-stat { font-size: 0.7rem; padding: 0.2rem 0.4rem; }
+      .game-meta-tag { font-size: 0.6rem; padding: 0.15rem 0.4rem; }
+      .game-link { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+      .featured-badge, .dev-badge { font-size: 0.6rem; padding: 0.2rem 0.5rem; }
+      
+      /* About */
+      .about-content { flex-direction: column; text-align: center; }
+      .profile-pic { width: 150px; height: 150px; }
+      
+      /* Skills */
+      .skill-name { font-size: 0.85rem; }
+      .skill-progress { height: 8px; }
+      
+      /* Contact */
+      .contact-methods { grid-template-columns: 1fr; gap: 1rem; }
+      .contact-card { padding: 1rem; }
+      .contact-icon { font-size: 1.5rem; }
+      
+      /* Form */
+      #contactForm { margin-top: 1rem; }
+      #contactForm label { font-size: 0.85rem; }
+      #contactForm input,
+      #contactForm textarea { padding: 0.6rem; font-size: 0.9rem; }
+      #contactForm button { padding: 0.7rem 1rem; font-size: 0.9rem; }
+      
+      /* Container overflow fix */
+      .container { overflow-x: hidden; }
+      section { overflow-x: hidden; }
+      
+      /* Footer */
+      .social-links { gap: 0.75rem; }
+      .social-link { width: 36px; height: 36px; font-size: 1.1rem; }
+      .copyright { font-size: 0.75rem; padding: 0 1rem; }
+      .footer-legal a { font-size: 0.75rem; }
+      
+      /* Back to Top */
+      .back-to-top { width: 40px; height: 40px; font-size: 1.1rem; bottom: 15px; right: 15px; }
+    }
+    
+    @media (max-width: 480px) {
+      .logo { width: 80px; height: 80px; }
+      h1 { font-size: 1.4rem; }
+      .tagline { font-size: 0.65rem; letter-spacing: 1px; }
+      .nav-link { padding: 0.35rem 0.6rem; font-size: 0.65rem; }
+      section { padding: 1rem; }
+      section h2 { font-size: 1.2rem; }
+      .game-title { font-size: 1.05rem; }
+      .game-stats { flex-direction: column; gap: 0.3rem; }
+      .contact-card { padding: 0.75rem; }
+      .contact-icon { font-size: 1.25rem; }
+      h3 { font-size: 1rem; }
+    }
   </style>
-  <section id="certificates">
-    <div class="section-wrap reveal">
-      <div class="section-head">
-        <div class="section-num">04 //</div>
-        <h2>Certificates</h2>
-        <p>Professional certifications and achievements.</p>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Particle Background -->
+  <canvas id="particles" class="particles"></canvas>
+
+  <!-- Header -->
+  <header>
+    <img src="assets/dev_icon_resized.png" alt="AJI Creators Logo - press to play logo animation" class="logo floating logo-clickable" id="devLogo" role="button" tabindex="0" title="Play logo animation" aria-haspopup="dialog">
+    <h1 class="glow">AJI <span class="ficker">CREATORS</span></h1>
+    <p class="tagline purple-glow">CRAFTING IMMERSIVE GAME EXPERIENCES</p>
+  </header>
+  
+  <!-- Navigation -->
+  <nav id="mainNav">
+    <div class="nav-container">
+      <a href="#home" class="nav-link active">HOME</a>
+      <a href="#games" class="nav-link">MY GAMES</a>
+      <a href="#about" class="nav-link">ABOUT</a>
+      <a href="#contact" class="nav-link">CONTACT</a>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <div class="container" id="mainContainer">
+    <section id="home">
+      <h2>WELCOME TO MY DIGITAL REALM</h2>
+      <div class="terminal">
+        <div class="terminal-text">
+          <p>> INITIALIZING DEVELOPER PROFILE...</p>
+          <p>> LOADING CREATIVE PROCESS...</p>
+          <p>> WELCOME TO AJI CREATORS STUDIO</p>
+          <p>> READY TO EXPLORE MY GAME UNIVERSE</p>
+        </div>
       </div>
-      <div class="certs-grid" id="certsGrid">
-        <!-- Dynamically populated by JavaScript -->
+      <p>At AJI Creators, I blend cutting-edge technology with artistic vision to create unforgettable gaming experiences. My passion for game development drives me to push boundaries and craft worlds that captivate players.</p>
+      <p>Specializing in mobile game development with Godot and Unity, I bring innovative concepts to life with attention to detail and player engagement at the core of every project.</p>
+      
+      <div class="skills-container">
+        <h3>MY SKILLS</h3>
+        <div class="skill-bar">
+          <div class="skill-name">
+            <span>Godot Development</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-level" data-width="90%"></div>
+          </div>
+        </div>
+        
+        <div class="skill-bar">
+          <div class="skill-name">
+            <span>Unity Development</span>
+            <span>10%</span>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-level" data-width="10%"></div>
+          </div>
+        </div>
+        
+        <div class="skill-bar">
+          <div class="skill-name">
+            <span>Game Design</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-level" data-width="85%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="games">
+      <h2>MY GAMES</h2>
+      <p>Explore my growing portfolio of immersive gaming experiences:</p>
+      <div class="game-browse-bar">
+        <div class="game-search-wrap">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <input type="search" id="gameSearch" placeholder="Search games..." aria-label="Search games">
+        </div>
+        <select id="gameStatusFilter" class="game-status-filter" aria-label="Filter games by status">
+          <option value="all">All games</option>
+          <option value="featured">⭐ Featured</option>
+          <option value="published">Published</option>
+          <option value="indev">In Dev</option>
+          <option value="casual">Casual / Private</option>
+        </select>
+      </div>
+  <div class="games-grid" id="gamesGrid">
+    <div class="game-card featured" data-status="featured published">
+      <div class="featured-badge"><i class="fas fa-crown"></i> Featured</div>
+      <img src="assets/app_icon_resized.png" alt="Shadow Avengers" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">SHADOW AVENGERS</h3>
+        <div class="game-stats">
+          <span class="game-stat"><i class="fas fa-star star"></i> 5.0</span>
+          <span class="game-stat"><i class="fas fa-comment"></i> 6 reviews</span>
+          <span class="game-stat downloads"><i class="fas fa-download"></i> 100+</span>
+          <span class="game-stat platform"><i class="fas fa-mobile-alt"></i> Android</span>
+        </div>
+        <p class="game-description">First built in Unity, then rebuilt in Godot due to ad integration issues and system limitations. A Chicken Invaders-style shadow shooter with progressive difficulty, elite enemy waves, and boss battles. Rated 7+.</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">GDScript</span>
+          <span class="game-meta-tag">2D</span>
+        </div>
+        <a href="https://play.google.com/store/apps/details?id=com.Aj.ShadowAvenger" class="game-link" target="_blank">VIEW</a>
+        <a href="privacy-policy.html#shadow-avengers" class="game-link">PRIVACY POLICY</a>
       </div>
     </div>
-  </section>
 
-  <!-- ═══ EXPERIENCE ═══ -->
-  <section id="experience">
-    <div class="section-wrap reveal">
-      <div class="section-head">
-        <div class="section-num">05 //</div>
-        <h2>Experience</h2>
-        <p>My journey so far.</p>
+    <div class="game-card" data-status="casual">
+      <img src="assets/Dino.jpg" alt="Dino Birthday" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">Dino Birthday</h3>
+        <div class="game-stats">
+          <span class="game-stat platform"><i class="fas fa-mobile-alt"></i> Android</span>
+        </div>
+        <p class="game-description">Celebrate with a cute dinosaur in this birthday-themed endless runner game! Collect letters and surprises as you run through colorful environments.</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">GDScript</span>
+          <span class="game-meta-tag">Endless Runner</span>
+        </div>
+        <a href="dino_info.html" class="game-link">INFO</a>
       </div>
-      <div class="exp-list">
-        <div class="exp-item">
-          <div class="exp-date">May 2026 — Present</div>
-          <div class="exp-content">
-            <h3>Akiyam Solutions</h3>
-            <div class="exp-role">VR Level Designer — Remote</div>
-            <ul class="exp-highlights">
-              <li>Working on VR level design to create immersive virtual environments</li>
-              <li>Designing and prototyping interactive 3D spaces for virtual reality platforms</li>
-            </ul>
-          </div>
+    </div>
+
+    <div class="game-card" data-status="published">
+      <img src="assets/Slime.png" alt="Slime Race" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">SLIME RACE</h3>
+        <div class="game-stats">
+          <span class="game-stat build-time"><i class="fas fa-clock"></i> Built in 4 days</span>
+          <span class="game-stat platform"><i class="fas fa-globe"></i> Web</span>
         </div>
-        <div class="exp-item">
-          <div class="exp-date">Mar 2026 — Present</div>
-          <div class="exp-content">
-            <h3>KALNET GLOBAL</h3>
-            <div class="exp-role">Backend Developer — Remote</div>
-            <ul class="exp-highlights">
-              <li>Working in the backend team to create an automation pipeline using AI capabilities</li>
-              <li>Building AI-powered workflows for streamlined deployment and infrastructure management</li>
-            </ul>
-          </div>
+        <p class="game-description">Race through challenging tracks as a speedy slime in this exciting mobile racing game! Playable directly in your browser.</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">GDScript</span>
+          <span class="game-meta-tag">HTML5</span>
         </div>
-        <div class="exp-item">
-          <div class="exp-date">Aug 2025 — Jul 2026</div>
-          <div class="exp-content">
-            <h3>Broadbased Games</h3>
-            <div class="exp-role">Game Developer — Remote</div>
-            <ul class="exp-highlights">
-              <li>Worked on the central bureau isometric mapping system</li>
-              <li>Created isometric assets for the Central Bureau map</li>
-            </ul>
-          </div>
+        <a href="https://aji-creators.itch.io/" class="game-link" target="_blank">PLAY</a>
+      </div>
+    </div>
+
+    <div class="game-card" data-status="published">
+      <img src="assets/Swim Bomber.png" alt="Swim Bomber" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">SWIM BOMBER</h3>
+        <div class="game-stats">
+          <span class="game-stat build-time"><i class="fas fa-clock"></i> Built in 6 days</span>
+          <span class="game-stat platform"><i class="fas fa-globe"></i> Web</span>
         </div>
-        <div class="exp-item">
-          <div class="exp-date">Jan — Feb 2026</div>
-          <div class="exp-content">
-            <h3>Qskill</h3>
-            <div class="exp-role">ML Trainee — Remote</div>
-            <ul class="exp-highlights">
-              <li>Classified iris flowers into three species using petal and sepal measurements with classification algorithms</li>
-            </ul>
-          </div>
+        <p class="game-description">A time attack bomber man game where you have to collect 7 keys in 5 minutes. Race against the clock in this fast-paced underwater challenge!</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">GDScript</span>
+          <span class="game-meta-tag">HTML5</span>
         </div>
-        <div class="exp-item">
-          <div class="exp-date">Sep — Oct 2025</div>
-          <div class="exp-content">
-            <h3>Hopscotch Games</h3>
-            <div class="exp-role">Vibe Coder — Remote</div>
-            <ul class="exp-highlights">
-              <li>Designed AI-driven workflows using ChatGPT for automated game asset and narrative generation, speeding up the development pipeline</li>
-              <li>Leveraged AI tools to prototype interactive game mechanics including "Petrograd Political Simulator" and "Mystery Time"</li>
-              <li>Used Claude and other AI models to build interactive games and AI-powered apps</li>
-            </ul>
-          </div>
+        <a href="https://aji-creators.itch.io/swim-bomber" class="game-link" target="_blank">PLAY</a>
+      </div>
+    </div>
+
+    <div class="game-card" data-status="published">
+      <img src="assets/Beach_cleanup.png" alt="Beach Cleanup" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">BEACH CLEANUP</h3>
+        <div class="game-stats">
+          <span class="game-stat build-time"><i class="fas fa-clock"></i> Built in 3 days</span>
+          <span class="game-stat platform"><i class="fas fa-globe"></i> Web</span>
         </div>
-        <div class="exp-item">
-          <div class="exp-date">Jan — Mar 2025</div>
-          <div class="exp-content">
-            <h3>GenZ Educate Wing</h3>
-            <div class="exp-role">ML Engineer — Remote</div>
-            <ul class="exp-highlights">
-              <li>Built a Random Forest model for credit card fraud detection on imbalanced datasets</li>
-              <li>Applied SMOTE and cross-validation to ensure robustness, achieving ~99% test accuracy</li>
-            </ul>
-          </div>
+        <p class="game-description">A deceptively cozy beach puzzle game where the biggest challenge isn't the sand or the sea—it's trusting your own eyes. The rules are laid out clearly, but they're a trap. To win, you must ignore the fake instructions and uncover the real winning condition hidden beneath the surface.</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">GDScript</span>
+          <span class="game-meta-tag">HTML5</span>
+          <span class="game-meta-tag">Puzzle</span>
         </div>
-        <div class="exp-item">
-          <div class="exp-date">Dec 2023</div>
-          <div class="exp-content">
-            <h3>Niltech Edu</h3>
-            <div class="exp-role">ML Intern — Onsite</div>
-            <ul class="exp-highlights">
-              <li>Developed predictive models for bank-loan grant approvals and weather forecasting using SVM and Keras</li>
-            </ul>
-          </div>
+        <a href="https://aji-creators.itch.io/beach-cleanup" class="game-link" target="_blank">PLAY</a>
+      </div>
+    </div>
+
+    <div class="game-card" data-status="published">
+      <img src="assets/Backaw.png" alt="Backaw" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">BACKOW!</h3>
+        <div class="game-stats">
+          <span class="game-stat build-time"><i class="fas fa-users"></i> Gamers Home Jam</span>
+          <span class="game-stat platform"><i class="fas fa-globe"></i> Web</span>
+        </div>
+        <p class="game-description">A rogue-lite Frogger-style game where you cross a busy highway as a chicken before becoming fried chicken. Built with a team — I engineered the procedural car spawning system and the dynamic heatwave shader. Grab a piña colada to cool down!</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">GDScript</span>
+          <span class="game-meta-tag">2D</span>
+          <span class="game-meta-tag">Roguelite</span>
+        </div>
+        <a href="https://chaimoon.itch.io/backow" class="game-link" target="_blank" rel="noopener">PLAY</a>
+      </div>
+    </div>
+
+    <div class="game-card" data-status="published">
+      <img src="assets/FormShift.png" alt="Form Shift" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">FORM SHIFT</h3>
+        <div class="game-stats">
+          <span class="game-stat build-time"><i class="fas fa-clock"></i> Godot Wild Jam #94</span>
+          <span class="game-stat platform"><i class="fas fa-globe"></i> Web</span>
+        </div>
+        <p class="game-description">An animal-merging idle game made for Godot Wild Jam #94. Drag and merge animals to create new species and tap them to earn money — reach the disco turtle to win!</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">GDScript</span>
+          <span class="game-meta-tag">Merge</span>
+          <span class="game-meta-tag">Idle</span>
+        </div>
+        <a href="https://aji-creators.itch.io/form-shift" class="game-link" target="_blank" rel="noopener">PLAY</a>
+      </div>
+    </div>
+
+    <div class="game-card" data-status="indev">
+      <div class="dev-badge"><i class="fas fa-code"></i> In Dev</div>
+      <img src="https://placehold.co/600x400/1a1a3a/00ffff?text=COMING+SOON" alt="Coming Soon" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">SOLAR NEXUS</h3>
+        <p class="game-description">A futuristic RPG adventure currently in development. Stay tuned for updates!</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">3D</span>
+          <span class="game-meta-tag">RPG</span>
+        </div>
+        <a href="solar_nexus.html" class="game-link">LEARN MORE</a>
+      </div>
+    </div>
+
+    <div class="game-card" data-status="casual">
+      <div class="dev-badge"><i class="fas fa-code"></i> Prototype</div>
+      <img src="https://placehold.co/600x400/1a1a3a/00ffff?text=VR+PROTOTYPE" alt="VR Puzzle Game" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">VR PUZZLE GAME</h3>
+        <div class="game-stats">
+          <span class="game-stat platform"><i class="fas fa-vr-cardboard"></i> VR</span>
+          <span class="game-stat platform"><i class="fas fa-cube"></i> Unity</span>
+        </div>
+        <p class="game-description">A VR puzzle prototype built with Unity & ProBuilder for team-level core mechanic testing — designed to validate interactions and gameplay loops before full production.</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Unity</span>
+          <span class="game-meta-tag">ProBuilder</span>
+          <span class="game-meta-tag">VR</span>
+          <span class="game-meta-tag">Level Design</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ═══ CONTACT ═══ -->
-  <section id="contact" class="contact-section">
-    <div class="section-wrap reveal">
-      <div class="contact-grid">
-        <div class="contact-text">
-          <div class="section-num">06 //</div>
-          <h3>Let's work together</h3>
-          <p>Whether you're a recruiter, a fellow developer, or just someone with a cool idea — I'd love to hear from you. I'm currently open to internship and freelance opportunities.</p>
-          <a href="mailto:kuppamajith@gmail.com" class="btn btn-filled" style="margin-top:0.5rem"><i class="fas fa-paper-plane"></i> Send Email</a>
+    <div class="game-card" data-status="indev">
+      <div class="dev-badge"><i class="fas fa-code"></i> In Dev</div>
+      <img src="assets/MergeMaza.png" alt="Merge Maza" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">MERGE MAZA</h3>
+        <p class="game-description">A Suika-style vehicle merger built in Godot: drop and merge tires, bicycles, bikes, autos, cars, buses, trucks, ships and aeroplanes all the way up to Earth. Ships with powerups and a cute cartoon garage for web, desktop and Android.</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">GDScript</span>
+          <span class="game-meta-tag">Merge</span>
+          <span class="game-meta-tag">Puzzle</span>
         </div>
-        <div class="contact-links">
-          <a href="mailto:kuppamajith@gmail.com" class="c-link">
-            <div class="c-icon" style="color: var(--accent);"><i class="fas fa-envelope"></i></div>
-            <div class="c-info"><div class="c-label">Email</div><div class="c-value">kuppamajith@gmail.com</div></div>
-          </a>
-          <a href="https://www.linkedin.com/in/ajithkuppam/" target="_blank" class="c-link">
-            <div class="c-icon" style="color: #0077b5;"><i class="fab fa-linkedin"></i></div>
-            <div class="c-info"><div class="c-label">LinkedIn</div><div class="c-value">linkedin.com/in/ajithkuppam</div></div>
-          </a>
-          <a href="https://github.com/MagicalCoder-12" target="_blank" class="c-link">
-            <div class="c-icon" style="color: #fff;"><i class="fab fa-github"></i></div>
-            <div class="c-info"><div class="c-label">GitHub</div><div class="c-value">MagicalCoder-12</div></div>
-          </a>
-          <a href="tel:+919490957410" class="c-link">
-            <div class="c-icon" style="color: var(--accent-3);"><i class="fas fa-phone"></i></div>
-            <div class="c-info"><div class="c-label">Phone</div><div class="c-value">+91 9490957410</div></div>
-          </a>
-        </div>
+        <a href="#" class="game-link">IN DEV</a>
+        <a href="privacy-policy.html#merge-maza" class="game-link">PRIVACY POLICY</a>
       </div>
     </div>
-  </section>
 
-  <!-- ═══ FOOTER ═══ -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-copy">&copy; <span id="year"></span> Ajith Kuppam</span>
-      <div class="footer-links">
-        <a href="https://github.com/MagicalCoder-12" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/ajithkuppam/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://instagram.com/ajcreator_legend" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://aji-creators.itch.io/" target="_blank" aria-label="Itch.io"><i class="fab fa-itch-io"></i></a>
+    <div class="game-card" data-status="indev">
+      <div class="dev-badge"><i class="fas fa-code"></i> In Dev</div>
+      <img src="assets/ReloadOrRot.png" alt="Reload or Rot" class="game-image" loading="lazy" decoding="async">
+      <div class="game-info">
+        <h3 class="game-title">RELOAD OR ROT</h3>
+        <p class="game-description">A top-down zombie survival shooter built in Godot. Mow down waves with 8 guns — AK47, Glock, Magnum, Minigun, MP5, rockets and shotguns — plus knife melee, an upgrade shop and achievements. For Windows and Android.</p>
+        <div class="game-meta">
+          <span class="game-meta-tag">Godot</span>
+          <span class="game-meta-tag">GDScript</span>
+          <span class="game-meta-tag">Shooter</span>
+          <span class="game-meta-tag">Survival</span>
+        </div>
+        <a href="#" class="game-link">IN DEV</a>
       </div>
     </div>
-  </footer>
-
-  <button class="btt" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-
-  <!-- Lightbox overlay -->
-  <div class="lightbox" id="certLightbox">
-    <button class="lb-close" id="certLightboxClose">&times;</button>
-    <img id="certLightboxImg" alt="">
   </div>
 
-  <script>
-    // ── Counter animation ──────────────────────────
-    const counters = document.querySelectorAll('.metric-value');
-    const countObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const el = e.target, target = +el.dataset.target;
-        let start = 0;
-        const tick = () => {
-          start += target / 40;
-          el.textContent = Math.min(Math.ceil(start), target);
-          if (start < target) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-        countObs.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(c => countObs.observe(c));
-
-    // ── Scroll reveal ──────────────────────────────
-    const revObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
-
-    // ── Certificates (data-driven) ──────────────────
-    const certificatesData = [
-      { file: 'NILTECH.EDU.jpg', label: 'Niltech Edu' },
-      { file: 'GenzIntern.jpg', label: 'GenZ Internship' },
-      { file: 'GenzTrain.jpg', label: 'GenZ Training' },
-      { file: 'Hack2skill-Certificate.png', label: 'Hack2Skill Hackathon' },
-      { file: 'QAI_certificate.jpg', label: 'QSkill AI/ML Internship' },
-      { file: 'Qai_LOI_page.jpg', label: 'QSkill Letter of Intent' },
-      { file: 'SaiKet Systems.jpg', label: 'SaiKet Systems' },
-      { file: 'BroadbasedGames.jpg', label: 'Broadbased Games Certificate' },
-      { file: 'BroadbasedGames_LOI.jpg', label: 'Broadbased Games Experience Letter' },
-      { file: 'college.jpeg', label: 'College Achievement' },
-      { file: 'Kalnet.png', label: 'KALNET Global Internship' },
-      // Just add new certificates here!
-      // { file: 'new-certificate.jpg', label: 'Certificate Name' }
-    ];
-
-    const certsGrid = document.getElementById('certsGrid');
-    certificatesData.forEach(cert => {
-      const certCard = document.createElement('div');
-      certCard.className = 'cert-card';
-      certCard.innerHTML = `
-        <img src="Certificates/${cert.file}" alt="${cert.label} Certificate" loading="lazy">
-        <div class="cert-label">${cert.label}</div>
-      `;
-      certsGrid.appendChild(certCard);
-    });
-
-    // ── Nav scroll + back-to-top ───────────────────
-    const nav = document.getElementById('navbar');
-    const btt = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', scrollY > 50);
-      btt.classList.toggle('show', scrollY > 500);
-    });
-    btt.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // ── Hamburger ──────────────────────────────────
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('open');
-    });
-
-    // ── Active nav link on scroll ──────────────────
-    const sections = document.querySelectorAll('section[id]');
-    const navAnchors = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => {
-        if (scrollY >= s.offsetTop - 200) current = s.id;
-      });
-      navAnchors.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-      });
-    });
-
-    // ── Project filter ─────────────────────────────
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        document.querySelectorAll('.project-row').forEach(row => {
-          row.style.display = (f === 'all' || row.dataset.cat === f) ? 'grid' : 'none';
+      <script>
+        document.querySelectorAll('.game-card').forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 100); // Staggered animation
         });
-      });
-    });
+      </script>
 
-    // ── Resume dropdowns ───────────────────────────
-    const resumeBtn = document.getElementById('resumeBtn');
-    const resumeDropdown = document.getElementById('resumeDropdown');
-    const heroResumeBtn = document.getElementById('heroResumeBtn');
-    const heroResumeDropdown = document.getElementById('heroResumeDropdown');
-
-    resumeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      resumeDropdown.classList.toggle('open');
-      heroResumeDropdown.classList.remove('open');
-    });
-    heroResumeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      heroResumeDropdown.classList.toggle('open');
-      resumeDropdown.classList.remove('open');
-    });
-    document.addEventListener('click', () => {
-      resumeDropdown.classList.remove('open');
-      heroResumeDropdown.classList.remove('open');
-    });
-
-    // ── Certificate lightbox ──────────────────────
-    const lightbox = document.getElementById('certLightbox');
-    const lightboxImg = document.getElementById('certLightboxImg');
-    const certsGridContainer = document.getElementById('certsGrid');
     
-    // Use event delegation to handle dynamically created cards
-    certsGridContainer.addEventListener('click', (e) => {
-      const certCard = e.target.closest('.cert-card');
-      if (certCard) {
-        const img = certCard.querySelector('img');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('open');
+    <section id="about">
+      <h2>ABOUT ME</h2>
+      <div class="about-content">
+        <img src="assets/me.jpg" alt="Developer" class="profile-pic">
+        <div>
+          <h3>AJI CREATORS</h3>
+          <p>I am an independent game developer passionate about creating engaging mobile experiences. With a focus on innovative gameplay mechanics and atmospheric storytelling, I strive to deliver quality entertainment to players worldwide.</p>
+          <p>My development philosophy combines technical excellence with creative vision, ensuring each game offers a unique and memorable experience.</p>
+          <p>Specialties: Godot Development, Unity Development, Game Design, Level Designing, Player Engagement Strategies</p>
+          
+          <div class="terminal">
+            <div class="terminal-text">
+              <p>> CURRENT PROJECTS: SOLAR NEXUS RPG</p>
+              <p>> YEARS EXPERIENCE: 2+</p>
+              <p>> GAMES PUBLISHED: 6</p>
+              <p>> GAMES IN PROGRESS: 3</p>
+              <p>> PLATFORMS: Android | Web</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <h2>CONTACT ME</h2>
+      <p>For business inquiries, collaboration opportunities, or player support:</p>
+      
+      <div class="contact-methods">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>EMAIL</h3>
+          <p><a href="mailto:royaloverlord.aicreator@gmail.com">royaloverlord.aicreator@gmail.com</a></p>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3>PHONE</h3>
+          <p>+91 9490957410</p>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>LOCATION</h3>
+          <p>India</p>
+        </div>
+      </div>
+      
+      <form id="contactForm">
+        <h3>SEND ME A MESSAGE</h3>
+        <div style="display: grid; gap: 1rem;">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" id="sendBtn">SEND MESSAGE</button>
+          <p id="formStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </div>
+  
+  <footer>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.youtube.com/channel/UCmBkIOICmiFAb-uk4iI1AcQ" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/ajcreator_legend" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://play.google.com/store/apps/dev?id=6253925717132103947&pli=1" class="social-link" target="_blank"><i class="fab fa-google-play"></i></a>
+    </div>
+    <p class="footer-legal"><a href="privacy-policy.html">PRIVACY POLICY</a></p>
+    <p class="copyright">© <span id="year"></span> AJI CREATORS. ALL RIGHTS RESERVED.</p>
+  </footer>
+  
+  <!-- Logo Animation Modal -->
+  <div class="logo-modal" id="logoModal" role="dialog" aria-modal="true" aria-label="Logo animation video" aria-hidden="true">
+    <div class="logo-modal-content">
+      <button class="logo-modal-close" id="logoModalClose" aria-label="Close logo animation">&times;</button>
+      <video id="logoAnimationVideo" src="assets/logo_animation.mp4" poster="assets/dev_icon_resized.png" controls playsinline preload="none"></video>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Sound Toggle -->
+  <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound effects" aria-pressed="true" title="Toggle sound effects">🔊</button>
+
+  <!-- Sound Effects -->
+  <audio id="sfxGlitch" src="assets/673774__h0p1r4e7o__glitch-sfx-148-sek.wav" preload="none"></audio>
+  <audio id="sfxShimmer" src="assets/771946__harrisonlace__shimmer-fx.wav" preload="none"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your public key
+    emailjs.init("ItsmH6aq4ZyRbOugQ");
+    // Initialize animations on page load
+window.addEventListener('load', function() {
+  document.getElementById('mainContainer').classList.add('fade-in');
+  
+  document.querySelectorAll('.skill-level').forEach(bar => {
+    bar.style.width = bar.getAttribute('data-width');
+  });
+  
+  document.querySelectorAll('.game-card').forEach((card, index) => {
+    setTimeout(() => {
+      card.classList.add('visible');
+    }, 300 * index);
+  });
+  
+  document.querySelectorAll('.contact-card').forEach((card, index) => {
+    setTimeout(() => {
+      card.classList.add('visible');
+    }, 300 * index);
+  });
+});
+    // Navigation scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
       }
+      
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+      
+      const sections = document.querySelectorAll('section');
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
     });
     
-    document.getElementById('certLightboxClose').addEventListener('click', () => {
-      lightbox.classList.remove('open');
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
     });
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) lightbox.classList.remove('open');
+    
+    // Back to top button
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') lightbox.classList.remove('open');
-    });
+    
+    // Logo animation modal - play when dev icon is pressed
+    const devLogo = document.getElementById('devLogo');
+    const logoModal = document.getElementById('logoModal');
+    const logoVideo = document.getElementById('logoAnimationVideo');
+    const logoModalClose = document.getElementById('logoModalClose');
 
-    // ── Theme toggle ──────────────────────────────
-    // ── Logo animation on avatar ────────────────
-    const pfAvatar = document.getElementById('pfAvatar');
-    const pfModal = document.getElementById('pfLogoModal');
-    const pfVideo = document.getElementById('pfLogoVideo');
-    const pfClose = document.getElementById('pfLogoClose');
-    function openPfModal() {
-      if (!pfModal || !pfVideo) return;
-      pfModal.classList.add('open');
-      pfModal.setAttribute('aria-hidden', 'false');
+    function openLogoModal() {
+      if (!logoModal || !logoVideo) return;
+      logoModal.classList.add('open');
+      logoModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      pfVideo.currentTime = 0;
-      const pp = pfVideo.play();
-      if (pp && typeof pp.catch === 'function') pp.catch(() => {});
-      if (pfClose) pfClose.focus();
+      logoVideo.currentTime = 0;
+      const playPromise = logoVideo.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch((err) => console.warn('Logo animation autoplay blocked:', err));
+      }
+      if (logoModalClose) logoModalClose.focus();
+      SoundFX.glitch();
     }
-    function closePfModal() {
-      if (!pfModal || !pfVideo) return;
-      pfVideo.pause();
-      pfVideo.currentTime = 0;
-      pfModal.classList.remove('open');
-      pfModal.setAttribute('aria-hidden', 'true');
+
+    function closeLogoModal() {
+      if (!logoModal || !logoVideo) return;
+      logoVideo.pause();
+      logoVideo.currentTime = 0;
+      logoModal.classList.remove('open');
+      logoModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      if (pfAvatar) pfAvatar.focus();
+      if (devLogo) devLogo.focus();
+      SoundFX.blip(330, 0.07);
     }
-    if (pfAvatar && pfModal) {
-      pfAvatar.addEventListener('click', openPfModal);
-      pfAvatar.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPfModal(); }
+
+    if (devLogo && logoModal) {
+      devLogo.addEventListener('click', openLogoModal);
+      devLogo.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLogoModal();
+        }
       });
-      pfModal.addEventListener('click', (e) => { if (e.target === pfModal) closePfModal(); });
+      logoModal.addEventListener('click', (e) => {
+        if (e.target === logoModal) closeLogoModal();
+      });
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && pfModal.classList.contains('open')) closePfModal();
+        if (e.key === 'Escape' && logoModal.classList.contains('open')) closeLogoModal();
       });
     }
-    if (pfClose) pfClose.addEventListener('click', closePfModal);
-    if (pfVideo) pfVideo.addEventListener('ended', closePfModal);
+    if (logoModalClose) logoModalClose.addEventListener('click', closeLogoModal);
+    if (logoVideo) logoVideo.addEventListener('ended', closeLogoModal);
 
-    const themeToggle = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      document.body.classList.add('light-theme');
-      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    // Sound effects engine (file SFX + WebAudio blips, mutable + persisted)
+    const SoundFX = (() => {
+      let enabled = localStorage.getItem('ajiSound') !== 'off';
+      let audioCtx = null;
+      const glitchEl = document.getElementById('sfxGlitch');
+      const shimmerEl = document.getElementById('sfxShimmer');
+      if (glitchEl) glitchEl.volume = 0.35;
+      if (shimmerEl) shimmerEl.volume = 0.4;
+      function playFile(el) {
+        if (!enabled || !el) return;
+        try {
+          el.currentTime = 0;
+          const p = el.play();
+          if (p && typeof p.catch === 'function') p.catch(() => {});
+        } catch (e) { /* ignore */ }
+      }
+      function blip(freq, dur) {
+        if (!enabled) return;
+        try {
+          freq = freq || 620; dur = dur || 0.05;
+          audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine'; osc.frequency.value = freq;
+          gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + dur);
+          osc.connect(gain); gain.connect(audioCtx.destination);
+          osc.start(); osc.stop(audioCtx.currentTime + dur);
+        } catch (e) { /* ignore */ }
+      }
+      return {
+        isEnabled() { return enabled; },
+        toggle() {
+          enabled = !enabled;
+          localStorage.setItem('ajiSound', enabled ? 'on' : 'off');
+          return enabled;
+        },
+        glitch() { playFile(glitchEl); },
+        shimmer() { playFile(shimmerEl); },
+        blip
+      };
+    })();
+
+    const soundToggle = document.getElementById('soundToggle');
+    function renderSoundToggle() {
+      if (!soundToggle) return;
+      const on = SoundFX.isEnabled();
+      soundToggle.textContent = on ? '🔊' : '🔇';
+      soundToggle.setAttribute('aria-pressed', String(on));
     }
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-theme');
-      const isLight = document.body.classList.contains('light-theme');
-      themeToggle.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    });
+    if (soundToggle) {
+      renderSoundToggle();
+      soundToggle.addEventListener('click', () => {
+        const on = SoundFX.toggle();
+        renderSoundToggle();
+        if (on) SoundFX.blip(660, 0.07);
+      });
+    }
 
-    // ── Scroll progress bar ────────────────────────
-    const scrollBar = document.getElementById('scrollBar');
-    window.addEventListener('scroll', () => {
-      const h = document.documentElement;
-      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-      scrollBar.style.width = pct + '%';
-    });
-
-    // ── Tech icons for p-tags ──────────────────────
-    const iconMap = {
-      'godot': 'fa-cube', 'gdscript': 'fa-code', 'android': 'fa-mobile-alt',
-      'python': 'fab fa-python', 'cli': 'fa-terminal', 'ai': 'fa-brain',
-      'devops': 'fa-cogs', 'automation': 'fa-robot', 'pytorch': 'fa-fire',
-      'minilm': 'fa-microchip', 'nlp': 'fa-language', 'streamlit': 'fa-chart-line',
-      'random forest': 'fa-tree', 'smote': 'fa-filter', 'scikit-learn': 'fa-cogs',
-      'faiss': 'fa-search', 'groq api': 'fa-bolt', 'rag': 'fa-puzzle-piece',
-      'rest api': 'fa-plug', 'pandas': 'fa-table', 'numpy': 'fa-cube',
-      'matplotlib': 'fa-chart-bar', 'react': 'fab fa-react', 'javascript': 'fab fa-js',
-      'vercel': 'fa-cloud', 'html': 'fab fa-html5', 'css': 'fab fa-css3-alt',
-      'mobile': 'fa-mobile-alt', 'racing': 'fa-car', 'web': 'fa-globe',
-      'action': 'fa-crosshairs', 'endless runner': 'fa-running',
-      '2d': 'fa-th', '3d': 'fa-cube', 'rpg': 'fa-dragon',
-      'java': 'fab fa-java', 'tailwind css': 'fab fa-tailwind', 'node.js': 'fab fa-node',
-      'git': 'fab fa-git-alt', 'github': 'fab fa-github', 'docker': 'fab fa-docker',
-      'keras': 'fa-brain', 'tensorflow': 'fa-brain',
-      'sentence transformers': 'fa-language', 'prompt engineering': 'fa-magic',
-      'seaborn': 'fa-chart-bar', 'html5': 'fab fa-html5', 'css3-alt': 'fab fa-css3-alt',
-      'game': 'fa-gamepad',
-    };
-    document.querySelectorAll('.p-tag').forEach(tag => {
-      const key = tag.textContent.trim().toLowerCase();
-      for (const [k, icon] of Object.entries(iconMap)) {
-        if (key.includes(k)) {
-          tag.innerHTML = `<i class="${icon}"></i> ${tag.textContent.trim()}`;
-          break;
+    // Terminal typing effect
+    (function terminalTyping() {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const textBox = document.querySelector('.terminal-text');
+      if (!textBox) return;
+      const lines = Array.from(textBox.querySelectorAll('p')).map(p => p.textContent);
+      if (reduceMotion || !lines.length) return;
+      textBox.innerHTML = '';
+      let p = document.createElement('p');
+      let t = document.createTextNode('');
+      const caret = document.createElement('span');
+      caret.className = 'typing-caret';
+      caret.setAttribute('aria-hidden', 'true');
+      p.appendChild(t);
+      p.appendChild(caret);
+      textBox.appendChild(p);
+      let li = 0, ci = 0;
+      function type() {
+        if (li >= lines.length) { caret.remove(); return; }
+        const line = lines[li];
+        if (ci <= line.length) {
+          t.nodeValue = line.slice(0, ci);
+          ci++;
+          setTimeout(type, 22);
+        } else {
+          li++; ci = 0;
+          if (li < lines.length) {
+            p = document.createElement('p');
+            t = document.createTextNode('');
+            p.appendChild(t);
+            p.appendChild(caret);
+            textBox.appendChild(p);
+            setTimeout(type, 220);
+          } else {
+            caret.remove();
+          }
         }
       }
-    });
+      type();
+    })();
 
-    // ── Remove skeleton on image load ──────────────
-    document.querySelectorAll('img').forEach(img => {
-      if (img.complete) return;
-      img.classList.add('skeleton');
-      img.addEventListener('load', () => img.classList.remove('skeleton'));
-      img.addEventListener('error', () => img.classList.remove('skeleton'));
-    });
+    // Game card 3D tilt (fine pointers only)
+    (function cardTilt() {
+      const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!fine || reduceMotion) return;
+      document.querySelectorAll('.game-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const rx = ((e.clientY - r.top) / r.height - 0.5) * -8;
+          const ry = ((e.clientX - r.left) / r.width - 0.5) * 8;
+          card.classList.add('tilting');
+          card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.classList.remove('tilting');
+          card.style.transform = '';
+        });
+      });
+    })();
 
-    // ── Year ───────────────────────────────────────
+    // Game search + status filter
+    (function gameSearch() {
+      const input = document.getElementById('gameSearch');
+      const statusFilter = document.getElementById('gameStatusFilter');
+      const grid = document.getElementById('gamesGrid');
+      if (!input || !grid) return;
+      let msg = document.createElement('div');
+      msg.className = 'no-games-msg';
+      msg.textContent = 'No games match your search or filter.';
+      msg.style.display = 'none';
+      grid.appendChild(msg);
+      function applyFilters() {
+        const q = input.value.trim().toLowerCase();
+        const status = statusFilter ? statusFilter.value : 'all';
+        let shown = 0;
+        grid.querySelectorAll('.game-card').forEach(card => {
+          const matchesText = !q || card.textContent.toLowerCase().includes(q);
+          const statuses = (card.dataset.status || '').split(' ');
+          const matchesStatus = status === 'all' || statuses.includes(status);
+          const hit = matchesText && matchesStatus;
+          card.style.display = hit ? '' : 'none';
+          if (hit) shown++;
+        });
+        msg.style.display = shown ? 'none' : '';
+      }
+      input.addEventListener('input', applyFilters);
+      if (statusFilter) statusFilter.addEventListener('change', () => {
+        applyFilters();
+        SoundFX.blip(700, 0.05);
+      });
+    })();
+
+    // Quiet hover blips on game cards (throttled)
+    (function cardBlips() {
+      let last = 0;
+      document.querySelectorAll('.game-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          const now = Date.now();
+          if (now - last > 180) { last = now; SoundFX.blip(520, 0.04); }
+        });
+      });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => SoundFX.blip(700, 0.05));
+      });
+    })();
+
+    // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Particle Background
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const particles = [];
+    const particleCount = window.innerWidth < 768 ? 30 : 100;
+    
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3 + 1,
+        speedX: Math.random() * 1 - 0.5,
+        speedY: Math.random() * 1 - 0.5,
+        color: Math.random() > 0.5 ? 'rgba(0, 255, 255, 0.5)' : 'rgba(157, 0, 255, 0.5)'
+      });
+    }
+    
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+        
+        p.x += p.speedX;
+        p.y += p.speedY;
+        
+        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+        
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const distance = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
+          
+          if (distance < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance/100})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+      
+      requestAnimationFrame(animateParticles);
+    }
+    
+    animateParticles();
+    
+    // adher window resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+    
+    // Contact form handling with EmailJS
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      
+      const formStatus = document.getElementById('formStatus');
+      const sendBtn = document.getElementById('sendBtn');
+      // Validate form inputs
+      if (!name || !email || !message) {
+        formStatus.textContent = 'Please fill in all required fields.';
+        formStatus.className = 'error';
+        SoundFX.blip(220, 0.12);
+        return;
+      }
+      formStatus.textContent = 'Sending...';
+      formStatus.className = '';
+      sendBtn.disabled = true;
+      const originalBtnText = sendBtn.textContent;
+      sendBtn.textContent = 'SENDING...';
+      
+      // Get current time in HH:MM format (IST, UTC+5:30)
+      const now = new Date();
+      const offset = 5.5 * 60 * 60 * 1000; // IST offset
+      const istDate = new Date(now.getTime() + offset);
+      const time = `${istDate.getUTCHours().toString().padStart(2, '0')}:${istDate.getUTCMinutes().toString().padStart(2, '0')}`;
+      
+      // Send email using EmailJS
+      emailjs.send("service_y2zz74r", "template_0f4xwty", {
+        name: name,
+        email: email,
+        message: message,
+        title: "Contact Form Submission",
+        time: time,
+        to_email: "royaloverlord.aicreator@gmail.com"
+      })
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        formStatus.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
+        formStatus.className = 'success';
+        SoundFX.shimmer();
+        document.getElementById('contactForm').reset();
+      }, function(error) {
+        console.error('FAILED...', error);
+        formStatus.textContent = 'Failed to send message. Please try again later.';
+        formStatus.className = 'error';
+        SoundFX.blip(220, 0.12);
+      })
+      .finally(function() {
+        sendBtn.disabled = false;
+        sendBtn.textContent = originalBtnText;
+      });
+    });
   </script>
-
 </body>
 </html>
