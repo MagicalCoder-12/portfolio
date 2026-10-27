@@ -319,19 +319,29 @@
     <p><strong>Local data</strong> — stored only on your device, in these files:</p>
     <ul>
       <li><code>highscore.cfg</code> — your high score</li>
-      <li><code>powerups.cfg</code> — power-up charges</li>
-      <li><code>ads.cfg</code> — rewarded-ad quota counter</li>
-      <li><code>player.cfg</code> — the display name you typed for the leaderboard</li>
+      <li><code>run_state.cfg</code> — the board state of a run in progress</li>
+      <li><code>powerups.cfg</code> — power-up charges and daily-shop refresh</li>
+      <li><code>ads.cfg</code> — rewarded-ad quota counters</li>
+      <li><code>player.cfg</code> — the display name you typed for the leaderboard and its player id</li>
+      <li><code>online_status.cfg</code> — on-screen name/status sizing</li>
       <li><code>audio.cfg</code> — volume settings</li>
       <li><code>seen_tiers.cfg</code> — which planets you have already discovered</li>
+      <li><code>tutorial.cfg</code> — which tutorial pages you have seen</li>
+      <li><code>achievements.cfg</code> — your unlocked-achievement progress</li>
+      <li><code>playgames.cfg</code> — only your Google Play Games sign-in preference (never any account data)</li>
     </ul>
     <p><strong>Online leaderboard</strong> — when you submit a score, Merge Maza sends a JSON payload of
-    <code>{"name": ..., "score": ...}</code> containing <strong>the display name you chose</strong> and your
-    <strong>score</strong> to a third-party leaderboard host:
-    <a href="https://api.npoint.io/c1ce436c649b14b518c3" target="_blank" rel="noopener">api.npoint.io</a>.
-    That display name becomes visible to anyone viewing the leaderboard. The host retains submitted entries under
-    its own privacy policy. The name never leaves your device otherwise, and AJI Creators does not associate it with
-    any identifier.</p>
+    <code>{"name": ..., "score": ..., "id": ...}</code> containing <strong>the display name you chose</strong>, your
+    <strong>score</strong>, and the <strong>player id</strong> held in <code>player.cfg</code> to AJI Creators'
+    own leaderboard service:
+    <a href="https://merge-manza-leaderboard.royaloverlord-aicreator.workers.dev" target="_blank" rel="noopener">merge-manza-leaderboard.royaloverlord-aicreator.workers.dev</a>,
+    a Cloudflare Workers app. The worker runs under Cloudflare, which is the only third party involved in
+    transporting that request. That display name becomes visible to anyone viewing the leaderboard.
+    The name and player id never leave your device otherwise, and AJI Creators does not associate
+    them with any other identifier.</p>
+    <p><strong>Update check</strong> — the app requests this public file:
+    <a href="https://gitlab.com/MagicalCoder-12/merge-manza-config/-/raw/main/update.json" target="_blank" rel="noopener">gitlab.com/MagicalCoder-12/merge-manza-config</a>
+    to know the current version. It contains only app-version information; no personal data is sent with that request.</p>
     <p><strong>Advertising</strong> — Merge Maza shows Google AdMob <strong>banner</strong> and
     <strong>rewarded</strong> ads.</p>
     <p><strong>Android permissions requested:</strong> <code>INTERNET</code>,
