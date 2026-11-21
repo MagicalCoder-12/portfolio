@@ -34,8 +34,8 @@ I'm a B.Tech student in AI & Data Science at St. Martin's Engineering College (C
 ### Web
 | Project | Link |
 |---------|------|
-| MPH Songs | [Live](https://mph-songs.vercel.app/) · [Play Store](https://play.google.com/store/apps/details?id=com.AJ.mphsongs) · [Privacy Policy](MPH_songs_policy.html) |
-| Portfolio Website | [Live](https://magicalcoder-12.github.io/Portfolio/portfolio.html) |
+| MPH Songs | [Live](https://mph-songs.vercel.app/) · [Play Store](https://play.google.com/store/apps/details?id=com.AJ.mphsongs) · [Privacy Policy](https://portfolio.kuppamajith.workers.dev/MPH_songs_policy) |
+| Portfolio Website | [Live](https://portfolio.kuppamajith.workers.dev/) |
 
 ---
 
