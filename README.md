@@ -2,7 +2,7 @@
 
 A personal portfolio website showcasing my games, machine learning projects, and web applications.
 
-**Live:** [magicalcoder-12.github.io/Portfolio/portfolio.html](https://magicalcoder-12.github.io/Portfolio/portfolio.html)
+**Live:** [portfolio.kuppamajith.workers.dev/](https://portfolio.kuppamajith.workers.dev/)
 
 ---
 
